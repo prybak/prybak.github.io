@@ -811,19 +811,6 @@
     "r": "Sea Towers to dwa wieżowce przy nabrzeżu, będące dominantą architektoniczną miasta."
   },
   {
-    "q": "Podaj numer słynnego III Liceum Ogólnokształcącego:",
-    "o": [
-      "III LO (Gdyńska Trójka)",
-      "I LO",
-      "V LO",
-      "X LO"
-    ],
-    "correct": [
-      0
-    ],
-    "r": "Gdyńska 'Trójka' od lat zajmuje czołowe miejsca w ogólnopolskich rankingach szkół."
-  },
-  {
     "q": "W Gdyni odbywa się festiwal Designu o nazwie:",
     "o": [
       "Gdynia Design Days",
@@ -865,7 +852,7 @@
     "r": "Antoni Abraham, nazywany 'Królem Kaszubów', mieszkał w domku przy ul. Starowiejskiej, który dziś jest muzeum."
   },
   {
-    "q": "Święty Mikołaj jest patronem Gdyni oraz której dzielnicy?",
+    "q": "Św. Mikołaj jest patronem Gdyni oraz której dzielnicy?",
     "o": [
       "Chyloni",
       "Orłowa",
@@ -1536,7 +1523,7 @@
       "Czerwonego"
     ],
     "correct": [
-      0
+      3
     ],
     "r": "Herb Gdyni przedstawia złote ryby na błękitnym tle, symbolizującym morze."
   },
@@ -1632,19 +1619,6 @@
       0
     ],
     "r": "Białe i niebieskie pasy symbolizują niebo i morze, podkreślając morski charakter Gdyni."
-  },
-  {
-    "q": "Ile pasów ma flaga Gdyni?",
-    "o": [
-      "Dwa",
-      "Trzy",
-      "Cztery",
-      "Jeden"
-    ],
-    "correct": [
-      0
-    ],
-    "r": "Flaga Gdyni składa się z dwóch równych poziomych pasów - białego i niebieskiego."
   },
   {
     "q": "Dokładna data zatwierdzenia flagi Gdyni to:",
@@ -2101,15 +2075,17 @@
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'block';
 
-            // Automatyczne przejście do następnego pytania po 1 sekundzie
-            if (autoNextTimer) {
-                clearTimeout(autoNextTimer);
-                autoNextTimer = null;
+            // Automatyczne przejście do następnego pytania po 1 sekundzie - TYLKO gdy odpowiedź jest poprawna
+            if (isCorrect) {
+                if (autoNextTimer) {
+                    clearTimeout(autoNextTimer);
+                    autoNextTimer = null;
+                }
+                autoNextTimer = setTimeout(() => {
+                    autoNextTimer = null;
+                    handleNext();
+                }, 1000);
             }
-            autoNextTimer = setTimeout(() => {
-                autoNextTimer = null;
-                handleNext();
-            }, 1000);
         }
 
         function handleNext() {
