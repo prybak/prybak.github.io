@@ -7,19 +7,19 @@
     <title>Wielki Quiz Wiedzy o Gdyni</title>
     <style>
         :root {
-            --primary: #006994;
-            --secondary: #00a8e8;
-            --accent: #f9a825;
-            --bg: #f0faff;
+            --primary: #1a4d6d;
+            --secondary: #0096c7;
+            --accent: #d4af37;
+            --bg: linear-gradient(135deg, #e8f4f8 0%, #dbeef5 100%);
             --card: #ffffff;
-            --text: #0a3d62;
-            --correct: #2ecc71;
-            --wrong: #e74c3c;
+            --text: #0d2d47;
+            --correct: #06a77d;
+            --wrong: #d32f2f;
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
+            background: var(--bg);
             color: var(--text);
             margin: 0;
             display: flex;
@@ -29,14 +29,15 @@
         }
 
         .quiz-container {
-            background-color: var(--card);
+            background: linear-gradient(135deg, #ffffff 0%, #f5fafb 100%);
             width: 100%;
             max-width: 750px;
             margin: 20px;
             padding: 30px;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 45px rgba(26, 77, 109, 0.15), 0 0 30px rgba(0, 150, 199, 0.08);
             text-align: center;
+            border-top: 4px solid var(--secondary);
         }
 
         .screen {
@@ -93,18 +94,20 @@
             background: linear-gradient(90deg, var(--secondary), var(--primary));
             width: 0%;
             transition: width 0.4s ease;
+            box-shadow: 0 0 15px rgba(0, 150, 199, 0.4);
         }
 
         .question-type-badge {
             display: inline-block;
             padding: 5px 15px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border-radius: 30px;
             font-size: 0.75rem;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 150, 199, 0.2);
         }
 
         /* Styl dla zdjęć pomników */
@@ -157,22 +160,24 @@
             display: flex;
             align-items: center;
             padding: 14px 18px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #cbd5e0;
             border-radius: 14px;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 500;
+            background: #fafbfc;
         }
 
         .option-item:hover {
             border-color: var(--secondary);
-            background-color: #f8fbff;
+            background: linear-gradient(135deg, #f0fafb, #e8f4f8);
+            box-shadow: 0 4px 12px rgba(0, 150, 199, 0.15);
         }
 
         .option-item.selected {
-            border-color: var(--primary);
-            background-color: #eef9ff;
-            box-shadow: 0 4px 6px rgba(0, 105, 148, 0.1);
+            border-color: var(--secondary);
+            background: linear-gradient(135deg, #d4f1f9, #c2ebf5);
+            box-shadow: 0 4px 12px rgba(0, 150, 199, 0.2);
         }
 
         .option-item.reveal-correct {
@@ -194,7 +199,7 @@
         }
 
         .btn-main {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             width: 100%;
@@ -204,17 +209,17 @@
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 105, 148, 0.3);
+            box-shadow: 0 6px 20px rgba(26, 77, 109, 0.3);
             transition: all 0.2s;
         }
 
         .btn-main:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 150, 199, 0.35);
         }
 
         .btn-main:disabled {
-            background-color: #cbd5e0;
+            background: #cbd5e0;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
@@ -224,13 +229,14 @@
             margin-top: 20px;
             padding: 18px;
             border-radius: 14px;
-            background: #fff9eb;
+            background: linear-gradient(135deg, #fffbf0, #fff9eb);
             border-left: 6px solid var(--accent);
             text-align: left;
             display: none;
             font-size: 1rem;
             line-height: 1.5;
             animation: slideIn 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
         }
 
         @keyframes slideIn {
@@ -255,7 +261,8 @@
             justify-content: center;
             align-items: center;
             margin: 25px auto;
-            background: white;
+            background: radial-gradient(circle at 30% 30%, #f0fafb, #ffffff);
+            box-shadow: 0 8px 20px rgba(26, 77, 109, 0.15);
         }
 
         .score-val {
@@ -281,12 +288,14 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(26, 77, 109, 0.1);
         }
 
         .mode-btn:hover {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 150, 199, 0.25);
         }
     </style>
 </head>
@@ -297,14 +306,13 @@
         <!-- EKRAN STARTOWY -->
         <div id="start-screen" class="screen active">
             <span class="icon-large">⚓</span>
-            <h1>Wielki Quiz o Gdyni</h1>
-            <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń"!</p>
-            <p>Baza zawiera 91 pytań oraz 21 pomników.</p>
+            <h1>Wyrusz w wielki rejs po Gdyni</h1>
+            <p>Sprawdź, jak dobrze znasz <b>miasto z morza i marzeń</b>.</p>
             <div class="mode-selector">
-                <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
-                <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie pytania</button>
-                <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko pomniki</button>
-                <button class="mode-btn" onclick="startQuizMode('noMonuments')">📝 Tylko pytania</button>
+                <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">W jaki rejs ruszasz?</p>
+                <button class="mode-btn" onclick="startQuizMode('all')">🚢 Pełny rejs</button>
+                <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Rejs Pomników</button>
+                <button class="mode-btn" onclick="startQuizMode('noMonuments')">⛵ Rejs Kapitański</button>
             </div>
         </div>
 
@@ -894,19 +902,6 @@
       0
     ],
     "r": "Gdynia od lat współpracuje z brytyjskim Plymouth."
-  },
-  {
-    "q": "Co symbolizuje 'Maszt' przy Urzędzie Miasta?",
-    "o": [
-      "Więzi Gdyni z morzem",
-      "Dawny ratusz",
-      "Radiostację",
-      "Pomnik techniki"
-    ],
-    "correct": [
-      0
-    ],
-    "r": "Wysoki maszt flagowy przed Urzędem Miasta to jeden z symboli morskiego charakteru Gdyni."
   },
   {
     "q": "Ile metrów ma molo w Orłowie?",
@@ -1613,19 +1608,6 @@
     "r": "Flaga Gdyni to dwubarwny proporczyk w kolorach białym (góra) i niebieskim (dół)."
   },
   {
-    "q": "Jakie proporcje ma flaga Gdyni (szerokość do długości)?",
-    "o": [
-      "5:8",
-      "1:2",
-      "2:3",
-      "3:5"
-    ],
-    "correct": [
-      0
-    ],
-    "r": "Flaga Gdyni ma proporcje 5:8, co oznacza, że jest 1,6 razy dłuższa niż szeroka."
-  },
-  {
     "q": "Kto zaprojektował flagę Gdyni?",
     "o": [
       "Józef Jazierski",
@@ -2119,7 +2101,7 @@
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'block';
 
-            // Automatyczne przejście do następnego pytania po 2 sekundach
+            // Automatyczne przejście do następnego pytania po 1 sekundzie
             if (autoNextTimer) {
                 clearTimeout(autoNextTimer);
                 autoNextTimer = null;
@@ -2127,7 +2109,7 @@
             autoNextTimer = setTimeout(() => {
                 autoNextTimer = null;
                 handleNext();
-            }, 2000);
+            }, 1000);
         }
 
         function handleNext() {
