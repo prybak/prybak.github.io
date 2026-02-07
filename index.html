@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,24 +35,65 @@
             margin: 20px;
             padding: 30px;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
-        .screen { display: none; }
-        .screen.active { display: block; animation: fadeIn 0.4s ease-out; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .screen {
+            display: none;
         }
 
-        h1 { color: var(--primary); margin-top: 0; font-size: 1.8rem; }
-        .icon-large { font-size: 4rem; margin-bottom: 20px; display: block; }
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
 
-        .progress-meta { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; }
-        .progress-bg { height: 12px; background: #e0e0e0; border-radius: 6px; margin-bottom: 25px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); width: 0%; transition: width 0.4s ease; }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .icon-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .progress-bg {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            width: 0%;
+            transition: width 0.4s ease;
+        }
 
         .question-type-badge {
             display: inline-block;
@@ -73,7 +115,8 @@
             border-radius: 16px;
             margin-bottom: 20px;
             background: #f0f0f0;
-            display: none; /* Pokazywane tylko gdy jest obrazek */
+            display: none;
+            /* Pokazywane tylko gdy jest obrazek */
             border: 1px solid #ddd;
         }
 
@@ -96,9 +139,19 @@
             margin-bottom: 20px;
         }
 
-        .question-text { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; line-height: 1.3; color: var(--primary); }
-        
-        .options-list { display: grid; gap: 12px; text-align: left; }
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: var(--primary);
+        }
+
+        .options-list {
+            display: grid;
+            gap: 12px;
+            text-align: left;
+        }
 
         .option-item {
             display: flex;
@@ -111,13 +164,34 @@
             font-weight: 500;
         }
 
-        .option-item:hover { border-color: var(--secondary); background-color: #f8fbff; }
-        .option-item.selected { border-color: var(--primary); background-color: #eef9ff; box-shadow: 0 4px 6px rgba(0,105,148,0.1); }
-        
-        .option-item.reveal-correct { background-color: var(--correct) !important; border-color: var(--correct) !important; color: white; }
-        .option-item.reveal-wrong { background-color: var(--wrong) !important; border-color: var(--wrong) !important; color: white; }
+        .option-item:hover {
+            border-color: var(--secondary);
+            background-color: #f8fbff;
+        }
 
-        .option-item input { margin-right: 15px; transform: scale(1.3); cursor: pointer; }
+        .option-item.selected {
+            border-color: var(--primary);
+            background-color: #eef9ff;
+            box-shadow: 0 4px 6px rgba(0, 105, 148, 0.1);
+        }
+
+        .option-item.reveal-correct {
+            background-color: var(--correct) !important;
+            border-color: var(--correct) !important;
+            color: white;
+        }
+
+        .option-item.reveal-wrong {
+            background-color: var(--wrong) !important;
+            border-color: var(--wrong) !important;
+            color: white;
+        }
+
+        .option-item input {
+            margin-right: 15px;
+            transform: scale(1.3);
+            cursor: pointer;
+        }
 
         .btn-main {
             background-color: var(--primary);
@@ -130,12 +204,21 @@
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,105,148,0.3);
+            box-shadow: 0 4px 12px rgba(0, 105, 148, 0.3);
             transition: all 0.2s;
         }
 
-        .btn-main:hover { background-color: var(--secondary); transform: translateY(-2px); }
-        .btn-main:disabled { background-color: #cbd5e0; cursor: not-allowed; box-shadow: none; transform: none; }
+        .btn-main:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-main:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
 
         .rationale {
             margin-top: 20px;
@@ -150,7 +233,17 @@
             animation: slideIn 0.3s ease;
         }
 
-        @keyframes slideIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
         .score-circle {
             width: 160px;
@@ -164,301 +257,783 @@
             margin: 25px auto;
             background: white;
         }
-        .score-val { font-size: 2.8rem; color: var(--primary); font-weight: 800; }
-        
-        .mode-selector { margin: 30px 0; display: flex; flex-direction: column; gap: 15px; }
-        .mode-btn { padding: 16px 24px; border: 2px solid var(--primary); border-radius: 14px; background: white; color: var(--primary); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
-        .mode-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+        .score-val {
+            font-size: 2.8rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .mode-selector {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mode-btn {
+            padding: 16px 24px;
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mode-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
+
 <body>
 
-<div class="quiz-container">
-    <!-- EKRAN STARTOWY -->
-    <div id="start-screen" class="screen active">
-        <span class="icon-large">⚓</span>
-        <h1>Wielki Quiz o Gdyni</h1>
-        <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń".</p>
-        <p>Baza zawiera <strong>50 pytań</strong>, w tym nową kategorię: <strong>Rozpoznawanie Pomników</strong>.</p>
-        <div class="mode-selector">
-            <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
-            <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie Pytania</button>
-            <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko Pomniki</button>
+    <div class="quiz-container">
+        <!-- EKRAN STARTOWY -->
+        <div id="start-screen" class="screen active">
+            <span class="icon-large">⚓</span>
+            <h1>Wielki Quiz o Gdyni</h1>
+            <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń".</p>
+            <p>Baza zawiera <strong>50 pytań</strong>, w tym nową kategorię: <strong>Rozpoznawanie Pomników</strong>.
+            </p>
+            <div class="mode-selector">
+                <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
+                <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie Pytania</button>
+                <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko Pomniki</button>
+            </div>
+        </div>
+
+        <!-- EKRAN QUIZU -->
+        <div id="quiz-screen" class="screen">
+            <div class="progress-meta">
+                <span>Pytanie <span id="curr-idx">1</span> / <span id="total-q">0</span></span>
+                <span id="percent-text">0%</span>
+            </div>
+            <div class="progress-bg">
+                <div id="progress-bar" class="progress-fill"></div>
+            </div>
+
+            <div id="q-badge" class="question-type-badge">Typ pytania</div>
+
+            <!-- Miejsce na zdjęcie -->
+            <div id="image-container" class="question-image-container">
+                <img id="question-img" src="" alt="Pomnik w Gdyni">
+            </div>
+            <div id="placeholder-container" class="image-placeholder" style="display:none;">
+                <span style="font-size: 3rem;">🗿</span>
+                <p>Rozpoznaj ten pomnik</p>
+            </div>
+
+            <div id="question-text" class="question-text"></div>
+            <div id="options-list" class="options-list"></div>
+            <div id="rationale-box" class="rationale"></div>
+
+            <button id="submit-btn" class="btn-main" onclick="checkAnswer()">Sprawdź odpowiedź</button>
+            <button id="next-btn" class="btn-main" style="display:none;" onclick="handleNext()">Dalej ➡</button>
+        </div>
+
+        <!-- EKRAN WYNIKÓW -->
+        <div id="result-screen" class="screen">
+            <span class="icon-large">🏆</span>
+            <h1>Twój Wynik</h1>
+            <div class="score-circle">
+                <div class="score-val"><span id="final-score">0</span></div>
+                <div style="color: #666;">pkt / <span id="final-max">0</span></div>
+            </div>
+            <p id="result-comment" style="font-size: 1.2rem; font-weight: 600; margin: 20px 0;"></p>
+            <button class="btn-main" onclick="location.reload()">Zagraj Ponownie 🔄</button>
         </div>
     </div>
 
-    <!-- EKRAN QUIZU -->
-    <div id="quiz-screen" class="screen">
-        <div class="progress-meta">
-            <span>Pytanie <span id="curr-idx">1</span> / <span id="total-q">0</span></span>
-            <span id="percent-text">0%</span>
-        </div>
-        <div class="progress-bg"><div id="progress-bar" class="progress-fill"></div></div>
-        
-        <div id="q-badge" class="question-type-badge">Typ pytania</div>
-        
-        <!-- Miejsce na zdjęcie -->
-        <div id="image-container" class="question-image-container">
-            <img id="question-img" src="" alt="Pomnik w Gdyni">
-        </div>
-        <div id="placeholder-container" class="image-placeholder" style="display:none;">
-            <span style="font-size: 3rem;">🗿</span>
-            <p>Rozpoznaj ten pomnik</p>
-        </div>
+    <script>
+        const rawData = [
+            // --- NOWA KATEGORIA: POMNIKI ZE ZDJĘCIEM ---
+            {
+                q: "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                o: ["Pomnik inż. Tadeusza Wendy", "Pomnik Eugeniusza Kwiatkowskiego", "Pomnik Ludzi Morza", "Pomnik Jana Radtkego"],
+                correct: [0],
+                img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-twenda.jpeg", // TU WKLEJ URL DO ZDJĘCIA 1 (Tadeusz Wenda)
+                r: "Pomnik inż. Tadeusza Wendy znajduje się na końcu Mola Rybackiego. Wenda był głównym projektantem i budowniczym portu gdyńskiego."
+            },
+            {
+                q: "Rozpoznaj ten monument znajdujący się w Gdyni:",
+                o: ["Pomnik Ludzi Morza", "Pomnik Ofiar Grudnia '70", "Pomnik Polski Morskiej", "Pomnik Marynarza Polskiego"],
+                correct: [0],
+                img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-ludziommorza.jpeg", // TU WKLEJ URL DO ZDJĘCIA 2 (Ludzie Morza)
+                r: "Pomnik Ludzi Morza składa się z czterech rzeźb symbolizujących pracę na morzu: dokera, marynarza, rybaka i mechanika."
+            },
+            {
+                q: "Jaki ważny pomnik widnieje na fotografii?",
+                o: ["Pomnik Polski Morskiej", "Pomnik Zaślubin Polski z Morzem", "Pomnik Marynarza", "Pomnik Józefa Piłsudskiego"],
+                correct: [0],
+                img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-polskimorskiej.jpeg",
+                r: "Pomnik Polski Morskiej znajduje się na Skwerze Kościuszki i jest miejscem najważniejszych uroczystości państwowych w Gdyni."
+            },
+            {
+                q: "Kogo upamiętnia ten pomnik przy Akwarium Gdyńskim?",
+                o: ["Józefa Conrada Korzeniowskiego", "Stefana Żeromskiego", "Władysława IV", "Leonida Teligi"],
+                correct: [0],
+                img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-jckorzeniowski.jpeg",
+                r: "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego, autora m.in. 'Jądra ciemności'."
+            },
+            {
+                q: "Jaką postać przedstawia ten pomnik przy ul. Starowiejskiej?",
+                o: ["Antoniego Abrahama", "Jana Radtkego", "Króla Zygmunta Starego", "Eugeniusza Kwiatkowskiego"],
+                correct: [0],
+                img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-abraham.jpeg",
+                r: "To Antoni Abraham, nazywany 'Królem Kaszub', legendarny działacz walczący o polskość tych ziem."
+            },
 
-        <div id="question-text" class="question-text"></div>
-        <div id="options-list" class="options-list"></div>
-        <div id="rationale-box" class="rationale"></div>
-        
-        <button id="submit-btn" class="btn-main" onclick="checkAnswer()">Sprawdź odpowiedź</button>
-        <button id="next-btn" class="btn-main" style="display:none;" onclick="handleNext()">Dalej ➡</button>
-    </div>
-
-    <!-- EKRAN WYNIKÓW -->
-    <div id="result-screen" class="screen">
-        <span class="icon-large">🏆</span>
-        <h1>Twój Wynik</h1>
-        <div class="score-circle">
-            <div class="score-val"><span id="final-score">0</span></div>
-            <div style="color: #666;">pkt / <span id="final-max">0</span></div>
-        </div>
-        <p id="result-comment" style="font-size: 1.2rem; font-weight: 600; margin: 20px 0;"></p>
-        <button class="btn-main" onclick="location.reload()">Zagraj Ponownie 🔄</button>
-    </div>
-</div>
-
-<script>
-    const rawData = [
-        // --- NOWA KATEGORIA: POMNIKI ZE ZDJĘCIEM ---
-        {
-            q: "Jak nazywa się pomnik przedstawiony na zdjęciu?",
-            o: ["Pomnik inż. Tadeusza Wendy", "Pomnik Eugeniusza Kwiatkowskiego", "Pomnik Ludzi Morza", "Pomnik Jana Radtkego"],
-            correct: [0],
-            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-twenda.jpeg", // TU WKLEJ URL DO ZDJĘCIA 1 (Tadeusz Wenda)
-            r: "Pomnik inż. Tadeusza Wendy znajduje się na końcu Mola Rybackiego. Wenda był głównym projektantem i budowniczym portu gdyńskiego."
-        },
-        {
-            q: "Rozpoznaj ten monument znajdujący się w Gdyni:",
-            o: ["Pomnik Ludzi Morza", "Pomnik Ofiar Grudnia '70", "Pomnik Polski Morskiej", "Pomnik Marynarza Polskiego"],
-            correct: [0],
-            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-ludziommorza.jpeg", // TU WKLEJ URL DO ZDJĘCIA 2 (Ludzie Morza)
-            r: "Pomnik Ludzi Morza składa się z czterech rzeźb symbolizujących pracę na morzu: dokera, marynarza, rybaka i mechanika."
-        },
-        {
-            q: "Jaki ważny pomnik widnieje na fotografii?",
-            o: ["Pomnik Polski Morskiej", "Pomnik Zaślubin Polski z Morzem", "Pomnik Marynarza", "Pomnik Józefa Piłsudskiego"],
-            correct: [0],
-            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-polskimorskiej.jpeg",
-            r: "Pomnik Polski Morskiej znajduje się na Skwerze Kościuszki i jest miejscem najważniejszych uroczystości państwowych w Gdyni."
-        },
-        {
-            q: "Kogo upamiętnia ten pomnik przy Akwarium Gdyńskim?",
-            o: ["Józefa Conrada Korzeniowskiego", "Stefana Żeromskiego", "Władysława IV", "Leonida Teligi"],
-            correct: [0],
-            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-jckorzeniowski.jpeg",
-            r: "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego, autora m.in. 'Jądra ciemności'."
-        },
-        {
-            q: "Jaką postać przedstawia ten pomnik przy ul. Starowiejskiej?",
-            o: ["Antoniego Abrahama", "Jana Radtkego", "Króla Zygmunta Starego", "Eugeniusza Kwiatkowskiego"],
-            correct: [0],
-            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-abraham.jpeg",
-            r: "To Antoni Abraham, nazywany 'Królem Kaszub', legendarny działacz walczący o polskość tych ziem."
-        },
-
-        // --- PYTANIA Z TEKSTU (MULTI) ---
-        { 
-            q: "Wymień 3 najstarsze zabytki Gdyni:", 
-            o: ["Kościół św. Mikołaja (Chylonia)", "Kościół św. Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Sea Towers", "Akwarium Gdyńskie"], 
-            correct: [0, 1, 2], 
-            multi: true,
-            r: "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama." 
-        },
-        { 
-            q: "Które z wymienionych to uczelnie wyższe w Gdyni?", 
-            o: ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Uniwersytet Jagielloński", "Gdański Uniwersytet Medyczny"], 
-            correct: [0, 1], 
-            multi: true,
-            r: "Gdynia kształci kadry morskie w AMW oraz na Uniwersytecie Morskim." 
-        },
-        { 
-            q: "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):", 
-            o: ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"], 
-            correct: [0, 1, 2, 3, 4], 
-            multi: true,
-            r: "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego." 
-        },
-
-        // --- POZOSTAŁE PYTANIA (SINGLE) ---
-        { q: "Nad jaką zatoką leży Gdynia?", o: ["Zatoka Gdańska", "Zatoka Pucka", "Zatoka Pomorska", "Zatoka Szczecińska"], correct: [0], r: "Gdynia leży nad odnogą Bałtyku - Zatoką Gdańską." },
-        { q: "Data nadania praw miejskich Gdyni to:", o: ["10 lutego 1926", "11 listopada 1918", "1 września 1939", "3 maja 1921"], correct: [0], r: "Prawa miejskie nadano 10.02.1926 roku." },
-        { q: "Czyje imię nosi Gdyński Bulwar Nadmorski?", o: ["Feliksa Nowowiejskiego", "Jana Pawła II", "Tadeusza Wendy", "Eugeniusza Kwiatkowskiego"], correct: [0], r: "Nosi imię kompozytora Feliksa Nowowiejskiego." },
-        { q: "Kogo nazywano „Królem Kaszub”?", o: ["Antoniego Abrahama", "Jana Radtkego", "Tadeusza Wendy", "Eugeniusza Kwiatkowskiego"], correct: [0], r: "Tak nazywano Antoniego Abrahama." },
-        { q: "Pomysłodawcą budowy portu był inżynier:", o: ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Stefan Żeromski"], correct: [0], r: "To wizja ministra Eugeniusza Kwiatkowskiego." },
-        { q: "Budową portu kierował inżynier:", o: ["Tadeusz Wenda", "Eugeniusz Kwiatkowski", "Jan Radtke", "Antoni Abraham"], correct: [0], r: "To inżynier Tadeusz Wenda zaprojektował i budował port." },
-        { q: "Okręt-muzeum przy Skwerze Kościuszki to:", o: ["ORP Błyskawica", "ORP Burza", "Dar Pomorza", "ORP Orzeł"], correct: [0], r: "Niszczyciel ORP Błyskawica to najstarszy taki okręt na świecie." },
-        { q: "Jaki pomnik stoi w najwyższym punkcie Kamiennej Góry?", o: ["25-metrowy krzyż", "Pomnik Marynarza", "Pomnik Harcerzy", "Zegar Słoneczny"], correct: [0], r: "To podświetlany metalowy krzyż o wysokości 25 metrów." },
-        { q: "W którym roku Gdynia została uwolniona spod okupacji?", o: ["28 marca 1945", "10 lutego 1945", "1 września 1944", "11 listopada 1945"], correct: [0], r: "Walki o Gdynię zakończyły się 28 marca 1945 roku." },
-        { q: "Nazwa Gdyni podczas niemieckiej okupacji to:", o: ["Gotenhafen", "Gedingen", "Zoppot", "Danzig"], correct: [0], r: "Niemcy zmienili nazwę na Gotenhafen." },
-        { q: "Ile dzielnic posiada Gdynia?", o: ["21", "18", "25", "15"], correct: [0], r: "Gdynia podzielona jest na 21 dzielnic." },
-        { q: "Najdłuższa ulica w Gdyni to:", o: ["Morska", "Świętojańska", "Zwycięstwa", "Chwaszczyńska"], correct: [0], r: "Ulica Morska ciągnie się kilometrami w stronę Rumi." },
-        { q: "Najstarszy budynek mieszkalny w Gdyni Śródmieściu to:", o: ["Domek Abrahama", "Urząd Miasta", "Hala Targowa", "Sea Towers"], correct: [0], r: "To Domek Abrahama przy ul. Starowiejskiej." },
-        { q: "Gdzie znajduje się Torpedownia?", o: ["Babie Doły", "Orłowo", "Oksywie", "Port"], correct: [0], r: "Ruiny torpedowni z II wojny są w Babich Dołach." },
-        { q: "Kto jest autorem projektu herbu Gdyni?", o: ["Leon Staniszewski", "Jan Matejko", "Antoni Abraham", "Stefan Żeromski"], correct: [0], r: "Leon Staniszewski zaprojektował go w 1946 roku." },
-        { q: "Gdynia otrzymała status 'Pomnika Historii' w roku:", o: ["2015", "1926", "2000", "2024"], correct: [0], r: "Prezydent RP przyznał ten status w 2015 roku." },
-        { q: "Jak nazywa się bezpłatna kolejka w centrum?", o: ["Kolejka na Kamienną Górę", "Tramwaj wodny", "SKM", "Gondola portowa"], correct: [0], r: "To kolejka linowo-terenowa na Kamienną Górę." },
-        { q: "Co znajduje się w herbie Gdyni?", o: ["Dwie ryby przebite mieczem", "Gryf i miecz", "Kotwica i lwy", "Statek i mewy"], correct: [0], r: "W herbie są dwie żółte ryby i miecz." },
-        { q: "Muzeum Emigracji mieści się w:", o: ["Dworcu Morskim", "Akwarium", "Teatrze Muzycznym", "Urzędzie Miasta"], correct: [0], r: "To historyczny punkt odpraw transatlantyków." },
-        { q: "Dzielnica słynąca z klifu i mola to:", o: ["Orłowo", "Oksywie", "Babie Doły", "Redłowo"], correct: [0], r: "Orłowo to najbardziej malownicza część Gdyni." }
-    ];
-
-    // Dodaj brakujące pytania do pełnej bazy 50 (logika wypełnienia)
-    // [W tym miejscu w kodzie są wszystkie pytania z poprzednich wersji, łącznie 50 pozycji]
-
-    let quizData = [];
-    let currentIdx = 0;
-    let score = 0;
-
-    function startQuizMode(mode) {
-        let filteredData = rawData.filter(q => {
-            if (mode === 'monuments') {
-                return q.img && q.img !== '';
+            // --- PYTANIA Z TEKSTU (MULTI) ---
+            {
+                q: "Wymień 3 najstarsze zabytki Gdyni:",
+                o: ["Kościół św. Mikołaja (Chylonia)", "Kościół św. Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Sea Towers", "Akwarium Gdyńskie"],
+                correct: [0, 1, 2],
+                multi: true,
+                r: "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
+            },
+            {
+                q: "Które z wymienionych to uczelnie wyższe w Gdyni?",
+                o: ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Uniwersytet Jagielloński", "Gdański Uniwersytet Medyczny"],
+                correct: [0, 1],
+                multi: true,
+                r: "Gdynia kształci kadry morskie w AMW oraz na Uniwersytecie Morskim."
+            },
+            {
+                q: "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
+                o: ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"],
+                correct: [0, 1, 2, 3, 4],
+                multi: true,
+                r: "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Harcerzom Gdyńskim", "Obrońców Wybrzeża na Westerplatte", "Tym, co odeszli na wieczną wachtę", "Pomnik Marynarza Polskiego"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomik-harcerze.jpg",
+                "r": "Pomnik Harcerzy Gdyńskich upamiętnia młodych skautów, którzy polegli w walce o wolność ojczyzny we wrześniu 1939 roku."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Ofiar Grudnia 1970", "Obrońców Poczty Polskiej", "Pomnik Jana Heweliusza", "Pomnik Trzech Krzyży"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomik-ofiary1970.jpg",
+                "r": "Pomnik Ofiar Grudnia 1970 upamiętnia robotników, którzy zginęli podczas tragicznych wydarzeń na Wybrzeżu."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Żołnierzom Armii Krajowej", "Pomnik Partyzantów", "Brama Oliwska", "Pomnik Marszałka Piłsudskiego"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-ak.jpg",
+                "r": "Ten pomnik jest hołdem dla żołnierzy Armii Krajowej walczących o niepodległość Polski."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Eugeniusza Kwiatkowskiego", "Tadeusza Wendy", "Antoniego Abrahama", "Jana Radtkego"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-ekwatkowski.jpeg",
+                "r": "Eugeniusz Kwiatkowski to budowniczy portu i miasta Gdyni, którego pomnik znajduje się przy ul. 10 Lutego."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Ofiar Grudnia 1970", "Pomnik Poległych Stoczniowców", "Pomnik Solidarności", "Pomnik Ofiar Tyralierów"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-grudzien1970.jpg",
+                "r": "To kolejny monument upamiętniający tragiczną śmierć robotników w grudniu 1970 roku."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Jana Pawła II", "Kardynała Stefana Wyszyńskiego", "Papieża Franciszka", "Księdza Jerzego Popiełuszki"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-jp2.jpeg",
+                "r": "Pomnik Jana Pawła II w Gdyni upamiętnia wizytę papieża Polaka w tym mieście."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Józefa Piłsudskiego", "Józefa Hallera", "Kazimierza Pułaskiego", "Tadeusza Kościuszki"],
+                "correct": [0],
+                "multi": false,
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-jpilsudski.webp",
+                "r": "Marszałek Józef Piłsudski został upamiętniony pomnikiem w centrum Gdyni za zasługi dla niepodległości."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Mariusza Zaruskiego", "Josepha Conrada", "Krzysztofa Kolumba", "Adama Mickiewicza"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-mzaruski.jpg",
+                "r": "Mariusz Zaruski był pionierem polskiego żeglarstwa i wychowania morskiego."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Ofiar Terroru Komunistycznego", "Pamięci Sybiraków", "Ofiar Zbrodni Katyńskiej", "Więźniów Politycznych"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-offiarterroryzmu.jpg",
+                "r": "Pomnik ten jest poświęcony wszystkim ofiarom represji systemu komunistycznego."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Festiwalu Polskich Filmów Fabularnych", "Gdyńskiej Gwiazdy Filmowej", "Lwa Gdańskiego", "Złotych Klapków"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-pff.jpg",
+                "r": "Gdynia to stolica polskiego kina, a ten monument nawiązuje do słynnego festiwalu filmowego."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Kazimierza Porębskiego", "Wiceadmirała Unruga", "Admirała Steyera", "Kapitana Borchardta"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-porebski.jpg",
+                "r": "Kazimierz Porębski był twórcą i dowódcą Marynarki Wojennej odrodzonej Polski."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Burza, Wicher, Grom, Błyskawica", "Okręty Podwodne", "Niszczyciele Polskie", "Flota Bałtycka"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-statki.jpg",
+                "r": "Pomnik ten upamiętnia cztery legendarne polskie niszczyciele biorące udział w II wojnie światowej."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Stefana Żeromskiego", "Henryka Sienkiewicza", "Bolesława Prusa", "Władysława Reymonta"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-szeromski.jpg",
+                "r": "Stefan Żeromski to autor m.in. 'Wiatru od morza', mocno związany z tematyką morską."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Tym, co odeszli na wieczną wachtę", "Pomnik Marynarza Polskiego", "Pomnik Rybaka", "Pomnik Latarnika"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-tymcoodeszli.jpg",
+                "r": "Pomnik ten, znajdujący się na Bulwarze Nadmorskim, upamiętnia ludzi morza, którzy nigdy nie wrócili z rejsu."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Gdynian Wysiedlonych", "Więźniów Stutthofu", "Dzieci Wojny", "Ofiar Holocaustu"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-wysiedlonym.jpg",
+                "r": "Pomnik Gdynian Wysiedlonych przypomina o masowych przymusowych wysiedleniach mieszkańców Gdyni przez Niemców w 1939 roku."
+            },
+            {
+                "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
+                "o": ["Pamięci Zamęczonych za Wiarę i Ojczyznę", "Księdza Jerzego Popiełuszki", "Duchowieństwa Pomorskiego", "Obrońców Chrześcijaństwa"],
+                "correct": [0],
+                "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-zawaire.jpg",
+                "r": "Monument ten honoruje osoby duchowne i świeckie, które oddały życie za wartości narodowe i religijne."
+            },
+            {
+                "q": "Podaj liczbę zameldowanych mieszkańców Gdyni według danych z końca 2021 roku:",
+                "o": ["246 309", "224 824", "250 000", "235 400"],
+                "correct": [1],
+                "multi": false,
+                "r": "Na koniec 2021 roku liczba zameldowanych mieszkańców wynosiła dokładnie 224 824 osoby."
+            },
+            {
+                "q": "Które z wymienionych to pełne nazwy gdyńskich teatrów?",
+                "o": ["Teatr Miejski im. Witolda Gombrowicza", "Teatr Muzyczny im. Danuty Baduszkowej", "Teatr Narodowy", "Teatr Wybrzeże"],
+                "correct": [0, 1],
+                "multi": true,
+                "r": "Główne sceny miasta to Teatr Miejski im. W. Gombrowicza oraz słynny Teatr Muzyczny im. D. Baduszkowej."
+            },
+            {
+                "q": "Wskaż uczelnie wyższe, które mają swoją siedzibę w Gdyni:",
+                "o": ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Akademia Muzyczna", "Uniwersytet Gdański"],
+                "correct": [0, 1],
+                "multi": true,
+                "r": "Gdynia jest siedzibą Akademii Marynarki Wojennej oraz Uniwersytetu Morskiego."
+            },
+            {
+                "q": "Wybierz oficjalne dzielnice Gdyni:",
+                "o": ["Babie Doły", "Chylonia", "Cisowa", "Działki Leśne", "Dąbrowa", "Oliwa"],
+                "correct": [0, 1, 2, 3, 4],
+                "multi": true,
+                "r": "Babie Doły, Chylonia, Cisowa, Działki Leśne i Dąbrowa to jedne z 21 dzielnic Gdyni."
+            },
+            {
+                "q": "Zaznacz poprawne nazwy dzielnic Gdyni:",
+                "o": ["Grabówek", "Kamienna Góra", "Karwiny", "Leszczynki", "Mały Kack", "Sopot Centrum"],
+                "correct": [0, 1, 2, 3, 4],
+                "multi": true,
+                "r": "Do Gdyni należą m.in. Grabówek, luksusowa Kamienna Góra oraz rozległe Karwiny."
+            },
+            {
+                "q": "Który z tych okrętów jest udostępniony do zwiedzania jako muzeum w porcie?",
+                "o": ["ORP Błyskawica", "ORP Orzeł", "ORP Grom", "ORP Wicher"],
+                "correct": [0],
+                "multi": false,
+                "r": "Niszczyciel ORP Błyskawica to legenda floty wojennej i najstarszy zachowany okręt tego typu."
+            },
+            {
+                "q": "Gdzie odbywa się coroczny Festiwal Polskich Filmów Fabularnych w Gdyni?",
+                "o": ["W Teatrze Miejskim w Gdyni", "W Urzędzie Miasta", "W Hali Gdynia Arena", "W Muzeum Emigracji"],
+                "correct": [0],
+                "multi": false,
+                "r": "To najważniejsze święto polskiego kina odbywa się w Teatrze Miejskim w Gdyni."
+            },
+            {
+                "q": "Z jakiego materiału wykonany był pierwszy krzyż na Kamiennej Górze?",
+                "o": ["Z drewna", "Z metalu", "Z betonu", "Z kamienia"],
+                "correct": [0],
+                "multi": false,
+                "r": "Pierwszy krzyż stanął na Kamiennej Górze w 1920 roku i był konstrukcją drewnianą."
+            },
+            {
+                "q": "W którym roku historyczny układ urbanistyczny śródmieścia Gdyni został uznany za Pomnik Historii?",
+                "o": ["2010", "2015", "1926", "2020"],
+                "correct": [1],
+                "multi": false,
+                "r": "To zaszczytne wyróżnienie dla architektury modernistycznej Gdynia otrzymała w 2015 roku."
+            },
+            {
+                "q": "Jakie części Witomina funkcjonują jako oficjalne nazwy dzielnic?",
+                "o": ["Witomino-Radiostacja", "Witomino-Port", "Witomino-Leśniczówka", "Witomino-Centrum"],
+                "correct": [0, 2],
+                "multi": true,
+                "r": "Administracyjnie wyróżniamy Witomino-Radiostację oraz Witomino-Leśniczówkę."
+            },
+            {
+                "q": "Które z wymienionych osób są kluczowe dla historii budowy Gdyni?",
+                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Antoni Abraham"],
+                "correct": [0, 1, 2, 3],
+                "multi": true,
+                "r": "To wielkie postacie: od wizjonera Kwiatkowskiego, przez inżyniera Wendę, po lokalnych działaczy jak Radtke i Abraham."
+            },
+            {
+                "q": "Która ulica upamiętnia datę uzyskania przez Gdynię praw miejskich?",
+                "o": ["Świętojańska", "Starowiejska", "10 Lutego", "Morska"],
+                "correct": [2],
+                "multi": false,
+                "r": "Ulica 10 Lutego nawiązuje bezpośrednio do daty 10.02.1926 r."
+            },
+            {
+                "q": "Jak geograficznie definiowane jest położenie Gdyni?",
+                "o": ["Nad otwartym Morzem Bałtyckim", "Nad Zatoką Gdańską", "Nad ujściem rzeki Wisły", "Nad Zalewem Wiślanym"],
+                "correct": [1],
+                "multi": false,
+                "r": "Gdynia to miasto portowe leżące bezpośrednio nad Zatoką Gdańską."
+            },
+            {
+                "q": "Jaką funkcję zawodową pełnił Feliks Nowowiejski, patron Bulwaru Nadmorskiego?",
+                "o": ["Był inżynierem", "Był kompozytorem", "Był politykiem", "Był wojskowym"],
+                "correct": [1],
+                "multi": false,
+                "r": "Feliks Nowowiejski to wybitny kompozytor, twórca m.in. melodii 'Roty'."
+            },
+            {
+                "q": "Wskaż dzielnice Gdyni zaczynające się na literę 'O':",
+                "o": ["Obłuże", "Oksywie", "Orłowo", "Oliwa"],
+                "correct": [0, 1, 2],
+                "multi": true,
+                "r": "Obłuże, Oksywie i Orłowo to rdzenne dzielnice Gdyni. Oliwa leży w Gdańsku."
+            },
+            {
+                "q": "Kto założył Kościół św. Mikołaja w Gdyni-Chyloni?",
+                "o": ["Krzyżacy", "Cystersi", "Dominikanie", "Franciszkany"],
+                "correct": [0],
+                "multi": false,
+                "r": "Ten historyczny kościół w Chyloni został ufundowany przez Zakon Krzyżacki."
+            },
+            {
+                "q": "Wybierz dzielnice Gdyni, których nazwa zaczyna się na literę 'W':",
+                "o": ["Wielki Kack", "Witomino-Radiostacja", "Wzgórze Św. Maksymiliana", "Westerplatte"],
+                "correct": [0, 1, 2],
+                "multi": true,
+                "r": "To Wielki Kack, Witomino oraz Wzgórze Św. Maksymiliana."
+            },
+            {
+                "q": "Ile ryb widnieje w herbie miasta Gdyni?",
+                "o": ["Dwie", "Trzy", "Jedna", "Cztery"],
+                "correct": [0],
+                "multi": false,
+                "r": "W herbie Gdyni znajdują się dwie złote ryby zwrócone w przeciwne strony."
+            },
+            {
+                "q": "Wskaż trzy najstarsze zabytki Gdyni:",
+                "o": ["Kościół św. Mikołaja", "Kościół Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Hala Targowa"],
+                "correct": [0, 1, 2],
+                "multi": true,
+                "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
+            },
+            {
+                "q": "W którym roku Gdynia liczyła rekordowe 246 309 mieszkańców?",
+                "o": ["2018", "2021", "1926", "2000"],
+                "correct": [0],
+                "multi": false,
+                "r": "Liczba 246 309 mieszkańców została odnotowana w statystykach za rok 2018."
+            },
+            {
+                "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
+                "o": ["25 metrów", "15 metrów", "35 metrów", "10 metrów"],
+                "correct": [0],
+                "multi": false,
+                "r": "Obecny, podświetlany krzyż ma wysokość 25 metrów."
+            },
+            {
+                "q": "Jak nazywa się skwer upamiętniający brytyjskie miasto partnerskie Gdyni?",
+                "o": ["Skwer Plymouth", "Skwer Londyński", "Skwer Bristol", "Skwer Portsmouth"],
+                "correct": [0],
+                "multi": false,
+                "r": "Jest to Skwer Plymouth, położony w pobliżu bulwaru."
+            },
+            {
+                "q": "Kto był wizjonerem i głównym pomysłodawcą budowy portu?",
+                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Leon Staniszewski"],
+                "correct": [0],
+                "multi": false,
+                "r": "Inicjatorem politycznym i gospodarczym budowy był minister Eugeniusz Kwiatkowski."
+            },
+            {
+                "q": "W którym roku Gdynia uzyskała prawa miejskie?",
+                "o": ["1926", "1918", "1945", "1920"],
+                "correct": [0],
+                "multi": false,
+                "r": "Prawa miejskie zostały nadane Gdyni dokładnie 10 lutego 1926 roku."
+            },
+            {
+                "q": "Jak brzmi popularne hasło określające powstanie Gdyni?",
+                "o": ["Miasto z morza i marzeń", "Okno na świat", "Brama Bałtyku", "Perła Północy"],
+                "correct": [0],
+                "multi": false,
+                "r": "Hasło 'Gdynia - miasto z morza i marzeń' podkreśla błyskawiczną budowę miasta od podstaw."
+            },
+            {
+                "q": "Kogo nazywano 'Królem Kaszub'?",
+                "o": ["Antoniego Abrahama", "Jana Radtkego", "Tadeusz Wendę", "Eugeniusza Kwiatkowskiego"],
+                "correct": [0],
+                "multi": false,
+                "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
+            },
+            {
+                "q": "Wymień 3 najstarsze zabytki Gdyni:",
+                "o": ["Kościół św. Mikołaja (Chylonia)", "Kościół św. Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Sea Towers", "Akwarium Gdyńskie"],
+                "correct": [0, 1, 2],
+                "multi": true,
+                "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
+            },
+            {
+                "q": "Które z wymienionych to uczelnie wyższe w Gdyni?",
+                "o": ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Uniwersytet Jagielloński", "Gdański Uniwersytet Medyczny"],
+                "correct": [0, 1],
+                "multi": true,
+                "r": "Gdynia kształci kadry morskie w AMW oraz na Uniwersytecie Morskim."
+            },
+            {
+                "q": "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
+                "o": ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"],
+                "correct": [0, 1, 2, 3, 4],
+                "multi": true,
+                "r": "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego."
+            },
+            {
+                "q": "Nad jaką zatoką leży Gdynia?",
+                "o": ["Zatoka Gdańska", "Zatoka Pucka", "Zatoka Pomorska", "Zatoka Szczecińska"],
+                "correct": [0],
+                "r": "Gdynia leży nad odnogą Bałtyku - Zatoką Gdańską."
+            },
+            {
+                "q": "Czyje imię nosi Gdyński Bulwar Nadmorski?",
+                "o": ["Feliksa Nowowiejskiego", "Jana Pawła II", "Tadeusza Wendy", "Eugeniusza Kwiatkowskiego"],
+                "correct": [0],
+                "r": "Nosi imię kompozytora Feliksa Nowowiejskiego."
+            },
+            {
+                "q": "Pomysłodawcą budowy portu był inżynier:",
+                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Stefan Żeromski"],
+                "correct": [0],
+                "r": "To wizja ministra Eugeniusza Kwiatkowskiego."
+            },
+            {
+                "q": "Budową portu gdyńskiego kierował inżynier:",
+                "o": ["Tadeusz Wenda", "Eugeniusz Kwiatkowski", "Jan Radtke", "Antoni Abraham"],
+                "correct": [0],
+                "r": "To inżynier Tadeusz Wenda zaprojektował i budował port."
+            },
+            {
+                "q": "Jaki pomnik stoi w najwyższym punkcie Kamiennej Góry?",
+                "o": ["25-metrowy krzyż", "Pomnik Marynarza", "Pomnik Harcerzy", "Zegar Słoneczny"],
+                "correct": [0],
+                "r": "To podświetlany metalowy krzyż o wysokości 25 metrów."
+            },
+            {
+                "q": "W którym roku Gdynia została uwolniona spod okupacji?",
+                "o": ["28 marca 1945", "10 lutego 1945", "1 września 1944", "11 listopada 1945"],
+                "correct": [0],
+                "r": "Walki o Gdynię zakończyły się 28 marca 1945 roku."
+            },
+            {
+                "q": "Nazwa Gdyni podczas niemieckiej okupacji to:",
+                "o": ["Gotenhafen", "Gedingen", "Zoppot", "Danzig"],
+                "correct": [0],
+                "r": "Niemcy zmienili nazwę na Gotenhafen."
+            },
+            {
+                "q": "Ile dzielnic posiada Gdynia?",
+                "o": ["21", "18", "25", "15"],
+                "correct": [0],
+                "r": "Gdynia podzielona jest na 21 dzielnic."
+            },
+            {
+                "q": "Najdłuższa ulica w Gdyni to:",
+                "o": ["Morska", "Świętojańska", "Zwycięstwa", "Chwaszczyńska"],
+                "correct": [0],
+                "r": "Ulica Morska ciągnie się kilometrami w stronę Rumi."
+            },
+            {
+                "q": "Najstarszy budynek mieszkalny w Gdyni Śródmieściu to:",
+                "o": ["Domek Abrahama", "Urząd Miasta", "Hala Targowa", "Sea Towers"],
+                "correct": [0],
+                "r": "To Domek Abrahama przy ul. Starowiejskiej."
+            },
+            {
+                "q": "Gdzie znajduje się Torpedownia?",
+                "o": ["Babie Doły", "Orłowo", "Oksywie", "Port"],
+                "correct": [0],
+                "r": "Ruiny torpedowni z II wojny są w Babich Dołach."
+            },
+            {
+                "q": "Kto jest autorem projektu herbu Gdyni?",
+                "o": ["Leon Staniszewski", "Jan Matejko", "Antoni Abraham", "Stefan Żeromski"],
+                "correct": [0],
+                "r": "Leon Staniszewski zaprojektował go w 1946 roku."
+            },
+            {
+                "q": "Gdynia otrzymała status 'Pomnika Historii' w roku:",
+                "o": ["2015", "1926", "2000", "2024"],
+                "correct": [0],
+                "r": "Prezydent RP przyznał ten status w 2015 roku."
+            },
+            {
+                "q": "Jak nazywa się bezpłatna kolejka w centrum?",
+                "o": ["Kolejka na Kamienną Górę", "Tramwaj wodny", "SKM", "Gondola portowa"],
+                "correct": [0],
+                "r": "To kolejka linowo-terenowa na Kamienną Górę."
+            },
+            {
+                "q": "Co znajduje się w herbie Gdyni?",
+                "o": ["Dwie ryby przebite mieczem", "Gryf i miecz", "Kotwica i lwy", "Statek i mewy"],
+                "correct": [0],
+                "r": "W herbie są dwie żółte ryby i miecz."
+            },
+            {
+                "q": "Muzeum Emigracji mieści się w:",
+                "o": ["Dworcu Morskim", "Akwarium", "Teatrze Muzycznym", "Urzędzie Miasta"],
+                "correct": [0],
+                "r": "To historyczny punkt odpraw transatlantyków."
+            },
+            {
+                "q": "Dzielnica słynąca z klifu i mola to:",
+                "o": ["Orłowo", "Oksywie", "Babie Doły", "Redłowo"],
+                "correct": [0],
+                "r": "Orłowo to najbardziej malownicza część Gdyni."
+            },
+            {
+                "q": "Kogo upamiętnia pomnik przy Akwarium Gdyńskim?",
+                "o": ["Józefa Conrada Korzeniowskiego", "Stefana Żeromskiego", "Władysława IV", "Leonida Teligi"],
+                "correct": [0],
+                "r": "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego."
+            },
+            {
+                "q": "W którym roku Gdynia liczyła rekordowe 246 309 mieszkańców?",
+                "o": ["2018", "2021", "1926", "2000"],
+                "correct": [0],
+                "r": "Liczba 246 309 mieszkańców została odnotowana w statystykach za rok 2018."
+            },
+            {
+                "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
+                "o": ["25 metrów", "15 metrów", "35 metrów", "10 metrów"],
+                "correct": [0],
+                "r": "Obecny, podświetlany krzyż ma wysokość 25 metrów."
+            },
+            {
+                "q": "Jak nazywa się skwer upamiętniający brytyjskie miasto partnerskie Gdyni?",
+                "o": ["Skwer Plymouth", "Skwer Londyński", "Skwer Bristol", "Skwer Portsmouth"],
+                "correct": [0],
+                "r": "Jest to Skwer Plymouth, położony w pobliżu bulwaru."
+            },
+            {
+                "q": "Kto był wizjonerem i głównym pomysłodawcą budowy portu?",
+                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Leon Staniszewski"],
+                "correct": [0],
+                "r": "Inicjatorem politycznym i gospodarczym budowy był minister Eugeniusz Kwiatkowski."
+            },
+            {
+                "q": "Czym dla Gdyni jest Zatoka Gdańska?",
+                "o": ["Odnogą Morza Bałtyckiego", "Odnogą rzeki Wisły", "Zalewem słodkowodnym", "Jeziorem przybrzeżnych"],
+                "correct": [0],
+                "r": "Geograficznie Zatoka Gdańska to duża odnoga południowego Bałtyku."
+            },
+            {
+                "q": "W którym roku Gdynia uzyskała prawa miejskie?",
+                "o": ["1926", "1918", "1945", "1920"],
+                "correct": [0],
+                "r": "Prawa miejskie zostały nadane Gdyni dokładnie 10 lutego 1926 roku."
+            },
+            {
+                "q": "Jak brzmi popularne hasło określające powstanie Gdyni?",
+                "o": ["Miasto z morza i marzeń", "Okno na świat", "Brama Bałtyku", "Perła Północy"],
+                "correct": [0],
+                "r": "Hasło 'Gdynia - miasto z morza i marzeń' podkreśla błyskawiczną budowę miasta od podstaw."
+            },
+            {
+                "q": "Kogo nazywano 'Królem Kaszub'?",
+                "o": ["Antoniego Abrahama", "Jana Radtkego", "Tadeusz Wendę", "Eugeniusza Kwiatkowskiego"],
+                "correct": [0],
+                "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
             }
-            return true;
-        });
-        
-        quizData = [...filteredData];
-        shuffle(quizData);
-        
-        currentIdx = 0;
-        score = 0;
-        
-        document.getElementById('total-q').innerText = quizData.length;
-        document.getElementById('start-screen').classList.remove('active');
-        document.getElementById('quiz-screen').classList.add('active');
-        
-        showQuestion();
-    }
 
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
+        ];
 
-    function showQuestion() {
-        const q = quizData[currentIdx];
-        document.getElementById('curr-idx').innerText = currentIdx + 1;
-        document.getElementById('question-text').innerText = q.q;
-        
-        // Zarządzanie obrazkiem
-        const imgContainer = document.getElementById('image-container');
-        const placeholder = document.getElementById('placeholder-container');
-        const imgElement = document.getElementById('question-img');
+        // Dodaj brakujące pytania do pełnej bazy 50 (logika wypełnienia)
+        // [W tym miejscu w kodzie są wszystkie pytania z poprzednich wersji, łącznie 50 pozycji]
 
-        if (q.img && q.img !== "") {
-            imgElement.src = q.img;
-            imgContainer.style.display = "block";
-            placeholder.style.display = "none";
-        } else if (q.q.includes("zdjęciu") || q.q.includes("fotografii")) {
-            imgContainer.style.display = "none";
-            placeholder.style.display = "flex";
-        } else {
-            imgContainer.style.display = "none";
-            placeholder.style.display = "none";
-        }
+        let quizData = [];
+        let currentIdx = 0;
+        let score = 0;
 
-        document.getElementById('q-badge').innerText = q.multi ? "Wielokrotny wybór" : (q.img ? "Rozpoznaj obiekt" : "Jednokrotny wybór");
-        
-        const progress = (currentIdx / quizData.length) * 100;
-        document.getElementById('progress-bar').style.width = progress + "%";
-        document.getElementById('percent-text').innerText = Math.round(progress) + "%";
-
-        const list = document.getElementById('options-list');
-        list.innerHTML = '';
-        document.getElementById('rationale-box').style.display = 'none';
-        document.getElementById('submit-btn').style.display = 'block';
-        document.getElementById('submit-btn').disabled = true;
-        document.getElementById('next-btn').style.display = 'none';
-
-        // Stwórz losową kolejność opcji
-        const optionIndices = q.o.map((_, idx) => idx);
-        shuffle(optionIndices);
-
-        optionIndices.forEach((originalIndex) => {
-            const text = q.o[originalIndex];
-            const label = document.createElement('label');
-            label.className = 'option-item';
-            
-            const input = document.createElement('input');
-            input.type = q.multi ? 'checkbox' : 'radio';
-            input.name = 'quiz-opt';
-            input.value = originalIndex;
-            
-            input.onchange = () => {
-                document.getElementById('submit-btn').disabled = false;
-                if (!q.multi) {
-                    document.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+        function startQuizMode(mode) {
+            let filteredData = rawData.filter(q => {
+                if (mode === 'monuments') {
+                    return q.img && q.img !== '';
                 }
-                label.classList.toggle('selected', input.checked);
-            };
+                return true;
+            });
 
-            label.appendChild(input);
-            label.appendChild(document.createTextNode(text));
-            list.appendChild(label);
-        });
-    }
+            quizData = [...filteredData];
+            shuffle(quizData);
 
-    function checkAnswer() {
-        const q = quizData[currentIdx];
-        const selected = Array.from(document.querySelectorAll('input[name="quiz-opt"]:checked')).map(i => parseInt(i.value));
-        const items = document.querySelectorAll('.option-item');
-        
-        const correctIndices = q.correct;
-        const isCorrect = selected.length === correctIndices.length && 
-                          selected.every(val => correctIndices.includes(val));
+            currentIdx = 0;
+            score = 0;
 
-        if (isCorrect) score++;
+            document.getElementById('total-q').innerText = quizData.length;
+            document.getElementById('start-screen').classList.remove('active');
+            document.getElementById('quiz-screen').classList.add('active');
 
-        items.forEach((item, idx) => {
-            const input = item.querySelector('input');
-            const isActuallyCorrect = correctIndices.includes(parseInt(input.value));
-            if (isActuallyCorrect) {
-                item.classList.add('reveal-correct');
-            } else if (input.checked) {
-                item.classList.add('reveal-wrong');
-            }
-            input.disabled = true;
-        });
-
-        document.getElementById('rationale-box').style.display = 'none';
-        document.getElementById('submit-btn').style.display = 'none';
-        document.getElementById('next-btn').style.display = 'block';
-    }
-
-    function handleNext() {
-        currentIdx++;
-        if (currentIdx < quizData.length) {
             showQuestion();
-        } else {
-            showResults();
         }
-    }
 
-    function showResults() {
-        document.getElementById('quiz-screen').classList.remove('active');
-        document.getElementById('result-screen').classList.add('active');
-        document.getElementById('final-score').innerText = score;
-        document.getElementById('final-max').innerText = quizData.length;
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
 
-        const comm = document.getElementById('result-comment');
-        const ratio = score / quizData.length;
-        if (ratio === 1) comm.innerText = "⚓ IDEALNIE! Jesteś Gdyńskim Admirałem Wiedzy! 🏆";
-        else if (ratio > 0.8) comm.innerText = "⭐ Gratulacje! Twoja wiedza o Gdyni jest imponująca!";
-        else if (ratio > 0.5) comm.innerText = "👍 Całkiem nieźle! Znasz miasto dobrze, ale kilka detali umknęło.";
-        else comm.innerText = "⚓ Gdynia ma jeszcze wiele tajemnic przed Tobą. Spróbuj ponownie!";
-    }
-</script>
+        function showQuestion() {
+            const q = quizData[currentIdx];
+            document.getElementById('curr-idx').innerText = currentIdx + 1;
+            document.getElementById('question-text').innerText = q.q;
+
+            // Zarządzanie obrazkiem
+            const imgContainer = document.getElementById('image-container');
+            const placeholder = document.getElementById('placeholder-container');
+            const imgElement = document.getElementById('question-img');
+
+            if (q.img && q.img !== "") {
+                imgElement.src = q.img;
+                imgContainer.style.display = "block";
+                placeholder.style.display = "none";
+            } else if (q.q.includes("zdjęciu") || q.q.includes("fotografii")) {
+                imgContainer.style.display = "none";
+                placeholder.style.display = "flex";
+            } else {
+                imgContainer.style.display = "none";
+                placeholder.style.display = "none";
+            }
+
+            document.getElementById('q-badge').innerText = q.multi ? "Wielokrotny wybór" : (q.img ? "Rozpoznaj obiekt" : "Jednokrotny wybór");
+
+            const progress = (currentIdx / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + "%";
+            document.getElementById('percent-text').innerText = Math.round(progress) + "%";
+
+            const list = document.getElementById('options-list');
+            list.innerHTML = '';
+            document.getElementById('rationale-box').style.display = 'none';
+            document.getElementById('submit-btn').style.display = 'block';
+            document.getElementById('submit-btn').disabled = true;
+            document.getElementById('next-btn').style.display = 'none';
+
+            // Stwórz losową kolejność opcji
+            const optionIndices = q.o.map((_, idx) => idx);
+            shuffle(optionIndices);
+
+            optionIndices.forEach((originalIndex) => {
+                const text = q.o[originalIndex];
+                const label = document.createElement('label');
+                label.className = 'option-item';
+
+                const input = document.createElement('input');
+                input.type = q.multi ? 'checkbox' : 'radio';
+                input.name = 'quiz-opt';
+                input.value = originalIndex;
+
+                input.onchange = () => {
+                    document.getElementById('submit-btn').disabled = false;
+                    if (!q.multi) {
+                        document.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+                    }
+                    label.classList.toggle('selected', input.checked);
+                };
+
+                label.appendChild(input);
+                label.appendChild(document.createTextNode(text));
+                list.appendChild(label);
+            });
+        }
+
+        function checkAnswer() {
+            const q = quizData[currentIdx];
+            const selected = Array.from(document.querySelectorAll('input[name="quiz-opt"]:checked')).map(i => parseInt(i.value));
+            const items = document.querySelectorAll('.option-item');
+
+            const correctIndices = q.correct;
+            const isCorrect = selected.length === correctIndices.length &&
+                selected.every(val => correctIndices.includes(val));
+
+            if (isCorrect) score++;
+
+            items.forEach((item, idx) => {
+                const input = item.querySelector('input');
+                const isActuallyCorrect = correctIndices.includes(parseInt(input.value));
+                if (isActuallyCorrect) {
+                    item.classList.add('reveal-correct');
+                } else if (input.checked) {
+                    item.classList.add('reveal-wrong');
+                }
+                input.disabled = true;
+            });
+
+            document.getElementById('rationale-box').style.display = 'none';
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'block';
+        }
+
+        function handleNext() {
+            currentIdx++;
+            if (currentIdx < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.remove('active');
+            document.getElementById('result-screen').classList.add('active');
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('final-max').innerText = quizData.length;
+
+            const comm = document.getElementById('result-comment');
+            const ratio = score / quizData.length;
+            if (ratio === 1) comm.innerText = "⚓ IDEALNIE! Jesteś Gdyńskim Admirałem Wiedzy! 🏆";
+            else if (ratio > 0.8) comm.innerText = "⭐ Gratulacje! Twoja wiedza o Gdyni jest imponująca!";
+            else if (ratio > 0.5) comm.innerText = "👍 Całkiem nieźle! Znasz miasto dobrze, ale kilka detali umknęło.";
+            else comm.innerText = "⚓ Gdynia ma jeszcze wiele tajemnic przed Tobą. Spróbuj ponownie!";
+        }
+    </script>
 </body>
+
 </html>
