@@ -80,7 +80,7 @@
         .question-image-container img {
             width: 100%;
             height: 300px;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .image-placeholder {
@@ -165,6 +165,10 @@
             background: white;
         }
         .score-val { font-size: 2.8rem; color: var(--primary); font-weight: 800; }
+        
+        .mode-selector { margin: 30px 0; display: flex; flex-direction: column; gap: 15px; }
+        .mode-btn { padding: 16px 24px; border: 2px solid var(--primary); border-radius: 14px; background: white; color: var(--primary); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
+        .mode-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -176,7 +180,11 @@
         <h1>Wielki Quiz o Gdyni</h1>
         <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń".</p>
         <p>Baza zawiera <strong>50 pytań</strong>, w tym nową kategorię: <strong>Rozpoznawanie Pomników</strong>.</p>
-        <button class="btn-main" onclick="startQuiz()">Rozpocznij Wyzwanie 🚀</button>
+        <div class="mode-selector">
+            <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
+            <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie Pytania</button>
+            <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko Pomniki</button>
+        </div>
     </div>
 
     <!-- EKRAN QUIZU -->
@@ -226,35 +234,35 @@
             q: "Jak nazywa się pomnik przedstawiony na zdjęciu?",
             o: ["Pomnik inż. Tadeusza Wendy", "Pomnik Eugeniusza Kwiatkowskiego", "Pomnik Ludzi Morza", "Pomnik Jana Radtkego"],
             correct: [0],
-            img: "", // TU WKLEJ URL DO ZDJĘCIA 1 (Tadeusz Wenda)
+            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-twenda.jpeg", // TU WKLEJ URL DO ZDJĘCIA 1 (Tadeusz Wenda)
             r: "Pomnik inż. Tadeusza Wendy znajduje się na końcu Mola Rybackiego. Wenda był głównym projektantem i budowniczym portu gdyńskiego."
         },
         {
             q: "Rozpoznaj ten monument znajdujący się w Gdyni:",
             o: ["Pomnik Ludzi Morza", "Pomnik Ofiar Grudnia '70", "Pomnik Polski Morskiej", "Pomnik Marynarza Polskiego"],
             correct: [0],
-            img: "", // TU WKLEJ URL DO ZDJĘCIA 2 (Ludzie Morza)
+            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-ludziommorza.jpeg", // TU WKLEJ URL DO ZDJĘCIA 2 (Ludzie Morza)
             r: "Pomnik Ludzi Morza składa się z czterech rzeźb symbolizujących pracę na morzu: dokera, marynarza, rybaka i mechanika."
         },
         {
             q: "Jaki ważny pomnik widnieje na fotografii?",
             o: ["Pomnik Polski Morskiej", "Pomnik Zaślubin Polski z Morzem", "Pomnik Marynarza", "Pomnik Józefa Piłsudskiego"],
             correct: [0],
-            img: "", // TU WKLEJ URL DO ZDJĘCIA 3 (Polska Morska)
+            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-polskimorskiej.jpeg",
             r: "Pomnik Polski Morskiej znajduje się na Skwerze Kościuszki i jest miejscem najważniejszych uroczystości państwowych w Gdyni."
         },
         {
             q: "Kogo upamiętnia ten pomnik przy Akwarium Gdyńskim?",
             o: ["Józefa Conrada Korzeniowskiego", "Stefana Żeromskiego", "Władysława IV", "Leonida Teligi"],
             correct: [0],
-            img: "", // TU WKLEJ URL DO ZDJĘCIA 4 (Joseph Conrad)
+            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-jckorzeniowski.jpeg",
             r: "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego, autora m.in. 'Jądra ciemności'."
         },
         {
             q: "Jaką postać przedstawia ten pomnik przy ul. Starowiejskiej?",
             o: ["Antoniego Abrahama", "Jana Radtkego", "Króla Zygmunta Starego", "Eugeniusza Kwiatkowskiego"],
             correct: [0],
-            img: "", // TU WKLEJ URL DO ZDJĘCIA 5 (Antoni Abraham)
+            img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-abraham.jpeg",
             r: "To Antoni Abraham, nazywany 'Królem Kaszub', legendarny działacz walczący o polskość tych ziem."
         },
 
@@ -311,8 +319,15 @@
     let currentIdx = 0;
     let score = 0;
 
-    function startQuiz() {
-        quizData = [...rawData];
+    function startQuizMode(mode) {
+        let filteredData = rawData.filter(q => {
+            if (mode === 'monuments') {
+                return q.img && q.img !== '';
+            }
+            return true;
+        });
+        
+        quizData = [...filteredData];
         shuffle(quizData);
         
         currentIdx = 0;
@@ -367,14 +382,19 @@
         document.getElementById('submit-btn').disabled = true;
         document.getElementById('next-btn').style.display = 'none';
 
-        q.o.forEach((text, index) => {
+        // Stwórz losową kolejność opcji
+        const optionIndices = q.o.map((_, idx) => idx);
+        shuffle(optionIndices);
+
+        optionIndices.forEach((originalIndex) => {
+            const text = q.o[originalIndex];
             const label = document.createElement('label');
             label.className = 'option-item';
             
             const input = document.createElement('input');
             input.type = q.multi ? 'checkbox' : 'radio';
             input.name = 'quiz-opt';
-            input.value = index;
+            input.value = originalIndex;
             
             input.onchange = () => {
                 document.getElementById('submit-btn').disabled = false;
@@ -403,7 +423,7 @@
 
         items.forEach((item, idx) => {
             const input = item.querySelector('input');
-            const isActuallyCorrect = correctIndices.includes(idx);
+            const isActuallyCorrect = correctIndices.includes(parseInt(input.value));
             if (isActuallyCorrect) {
                 item.classList.add('reveal-correct');
             } else if (input.checked) {
@@ -412,8 +432,7 @@
             input.disabled = true;
         });
 
-        document.getElementById('rationale-box').innerText = q.r;
-        document.getElementById('rationale-box').style.display = 'block';
+        document.getElementById('rationale-box').style.display = 'none';
         document.getElementById('submit-btn').style.display = 'none';
         document.getElementById('next-btn').style.display = 'block';
     }
