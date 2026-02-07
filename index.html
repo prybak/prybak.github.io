@@ -29,15 +29,16 @@
         }
 
         .quiz-container {
-            background: linear-gradient(135deg, #f8fbfc 0%, #e8f5f9 50%, #dbeef5 100%);
-            width: 100%;
-            max-width: 750px;
-            margin: 20px;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 45px rgba(26, 77, 109, 0.15), 0 0 30px rgba(0, 150, 199, 0.08);
-            text-align: center;
-            border-top: 4px solid var(--secondary);
+          position: relative;
+          background: linear-gradient(135deg, #f8fbfc 0%, #e8f5f9 50%, #dbeef5 100%);
+          width: 100%;
+          max-width: 750px;
+          margin: 20px;
+          padding: 30px;
+          border-radius: 24px;
+          box-shadow: 0 15px 45px rgba(26, 77, 109, 0.15), 0 0 30px rgba(0, 150, 199, 0.08);
+          text-align: center;
+          border-top: 4px solid var(--secondary);
         }
 
         .screen {
@@ -329,9 +330,70 @@
         }
 
         .progress-section {
-            flex: 1;
+          flex: 1;
         }
-    </style>
+
+        .info-btn {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: linear-gradient(135deg, var(--secondary), var(--primary));
+          border: none;
+          color: white;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          font-size: 1.1rem;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 4px 12px rgba(0, 150, 199, 0.25);
+          transition: all 0.18s;
+        }
+
+        .info-btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 18px rgba(0, 150, 199, 0.35);
+        }
+
+        /* Modal for mode info */
+        .modal-overlay {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.45);
+          z-index: 1200;
+          justify-content: center;
+          align-items: center;
+          padding: 24px;
+        }
+
+        .modal-card {
+          position: relative;
+          background: white;
+          max-width: 720px;
+          width: 100%;
+          border-radius: 14px;
+          padding: 20px 22px;
+          box-shadow: 0 12px 40px rgba(10,40,60,0.25);
+          color: var(--text);
+          text-align: left;
+        }
+
+        .modal-card h3 { margin-top: 0; color: var(--primary); }
+
+        .modal-close {
+          position: absolute;
+          top: 12px;
+          right: 14px;
+          background: transparent;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: #444;
+        }
+      </style>
 </head>
 
 <body>
@@ -339,7 +401,8 @@
     <div class="quiz-container">
         <!-- EKRAN STARTOWY -->
         <div id="start-screen" class="screen active">
-            <span class="icon-large">⚓</span>
+          <button class="info-btn" onclick="showModeInfo()" title="Informacje">i</button>
+          <span class="icon-large">⚓</span>
             <h1>Wyrusz w wielki rejs po Gdyni</h1>
             <p>Sprawdź, jak dobrze znasz <b>miasto z morza i marzeń</b>.</p>
             <div class="mode-selector">
@@ -349,6 +412,21 @@
                 <button class="mode-btn" onclick="startQuizMode('noMonuments')">⛵ Rejs Kapitański</button>
                 <button class="mode-btn" onclick="startQuizMode('random')">🏴‍☠️ Rejs Piracki!</button>
             </div>
+        </div>
+
+        <!-- Mode info modal -->
+        <div id="mode-info-modal" class="modal-overlay" onclick="if(event.target===this) closeModeInfo()">
+          <div class="modal-card">
+            <button class="modal-close" onclick="closeModeInfo()">✕</button>
+            <h3>Tryby quizu</h3>
+            <ul>
+              <li><b>🚢 Pełny rejs:</b> Wszystkie dostępne pytania.</li>
+              <li><b>🗿 Rejs Pomników:</b> Tylko pytania ze zdjęciami pomników.</li>
+              <li><b>⛵ Rejs Kapitański:</b> Pytania bez zdjęć (teksty).</li>
+              <li><b>🏴‍☠️ Rejs Piracki!:</b> Losowy wybór 60 pytań z całej puli.</li>
+            </ul>
+            <p style="margin-top:12px; color:#666;">Kliknij poza oknem lub naciśnij ✕ aby zamknąć.</p>
+          </div>
         </div>
 
         <!-- EKRAN QUIZU -->
@@ -1978,6 +2056,24 @@
         let currentIdx = 0;
         let score = 0;
         let autoNextTimer = null; // timer handle for automatic next-question
+
+        function showModeInfo() {
+          const modal = document.getElementById('mode-info-modal');
+          if (!modal) return;
+          modal.style.display = 'flex';
+        }
+
+        function closeModeInfo() {
+          const modal = document.getElementById('mode-info-modal');
+          if (!modal) return;
+          modal.style.display = 'none';
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeModeInfo();
+          }
+        });
 
         function startQuizMode(mode) {
             // Filter logic:
