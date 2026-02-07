@@ -298,12 +298,13 @@
         <div id="start-screen" class="screen active">
             <span class="icon-large">⚓</span>
             <h1>Wielki Quiz o Gdyni</h1>
-            <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń".</p>
-            <p>Baza zawiera ok 60 pytań.</p>
+            <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń"!</p>
+            <p>Baza zawiera 91 pytań oraz 21 pomników.</p>
             <div class="mode-selector">
                 <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
                 <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie pytania</button>
                 <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko pomniki</button>
+                <button class="mode-btn" onclick="startQuizMode('noMonuments')">📝 Tylko pytania</button>
             </div>
         </div>
 
@@ -386,29 +387,6 @@
                 correct: [0],
                 img: "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-abraham.jpeg",
                 r: "To Antoni Abraham, nazywany 'Królem Kaszub', legendarny działacz walczący o polskość tych ziem."
-            },
-
-            // --- PYTANIA Z TEKSTU (MULTI) ---
-            {
-                q: "Wymień 3 najstarsze zabytki Gdyni:",
-                o: ["Kościół św. Mikołaja (Chylonia)", "Kościół św. Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Sea Towers", "Akwarium Gdyńskie"],
-                correct: [0, 1, 2],
-                multi: true,
-                r: "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
-            },
-            {
-                q: "Które z wymienionych to uczelnie wyższe w Gdyni?",
-                o: ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Uniwersytet Jagielloński", "Gdański Uniwersytet Medyczny"],
-                correct: [0, 1],
-                multi: true,
-                r: "Gdynia kształci kadry morskie w AMW oraz na Uniwersytecie Morskim."
-            },
-            {
-                q: "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
-                o: ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"],
-                correct: [0, 1, 2, 3, 4],
-                multi: true,
-                r: "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego."
             },
             {
                 "q": "Jak nazywa się pomnik przedstawiony na zdjęciu?",
@@ -525,301 +503,1511 @@
             },
 
             //PYTANIA BEZPOSREDNIE
-            {
-                "q": "Podaj liczbę zameldowanych mieszkańców Gdyni według danych z 2025 roku:",
-                "o": ["246 309", "224 824", "250 000", "239 325"],
-                "correct": [1],
-                "multi": false,
-                "r": "Na koniec 2021 roku liczba zameldowanych mieszkańców wynosiła dokładnie 224 824 osoby."
-            },
-            {
-                "q": "Które z wymienionych to pełne nazwy gdyńskich teatrów?",
-                "o": ["Teatr Miejski im. Witolda Gombrowicza", "Teatr Muzyczny im. Danuty Baduszkowej", "Teatr Narodowy", "Teatr Wybrzeże"],
-                "correct": [0, 1],
-                "multi": true,
-                "r": "Główne sceny miasta to Teatr Miejski im. W. Gombrowicza oraz słynny Teatr Muzyczny im. D. Baduszkowej."
-            },
-            {
-                "q": "Wskaż uczelnie wyższe, które mają swoją siedzibę w Gdyni:",
-                "o": ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Akademia Muzyczna", "Uniwersytet Gdański"],
-                "correct": [0, 1],
-                "multi": true,
-                "r": "Gdynia jest siedzibą Akademii Marynarki Wojennej oraz Uniwersytetu Morskiego."
-            },
-            {
-                "q": "Wybierz oficjalne dzielnice Gdyni:",
-                "o": ["Babie Doły", "Chylonia", "Cisowa", "Działki Leśne", "Dąbrowa", "Oliwa"],
-                "correct": [0, 1, 2, 3, 4],
-                "multi": true,
-                "r": "Babie Doły, Chylonia, Cisowa, Działki Leśne i Dąbrowa to jedne z 21 dzielnic Gdyni."
-            },
-            {
-                "q": "Zaznacz poprawne nazwy dzielnic Gdyni:",
-                "o": ["Grabówek", "Kamienna Góra", "Karwiny", "Leszczynki", "Mały Kack", "Sopot Centrum"],
-                "correct": [0, 1, 2, 3, 4],
-                "multi": true,
-                "r": "Do Gdyni należą m.in. Grabówek, luksusowa Kamienna Góra oraz rozległe Karwiny."
-            },
-            {
-                "q": "Który z tych okrętów jest udostępniony do zwiedzania jako muzeum w porcie?",
-                "o": ["ORP Błyskawica", "ORP Orzeł", "ORP Grom", "ORP Wicher"],
-                "correct": [0],
-                "multi": false,
-                "r": "Niszczyciel ORP Błyskawica to legenda floty wojennej i najstarszy zachowany okręt tego typu."
-            },
-            {
-                "q": "Gdzie odbywa się coroczny Festiwal Polskich Filmów Fabularnych w Gdyni?",
-                "o": ["W Teatrze Muzycznym w Gdyni", "W Urzędzie Miasta", "W Hali Gdynia Arena", "W Muzeum Emigracji"],
-                "correct": [0],
-                "multi": false,
-                "r": "To najważniejsze święto polskiego kina odbywa się w Teatrze Muzycznym w Gdyni."
-            },
-            {
-                "q": "Z jakiego materiału wykonany był pierwszy krzyż na Kamiennej Górze?",
-                "o": ["Z drewna", "Z metalu", "Z betonu", "Z kamienia"],
-                "correct": [0],
-                "multi": false,
-                "r": "Pierwszy krzyż stanął na Kamiennej Górze w 1920 roku i był konstrukcją drewnianą."
-            },
-            {
-                "q": "W którym roku historyczny układ urbanistyczny śródmieścia Gdyni został uznany za Pomnik Historii?",
-                "o": ["2010", "2015", "1926", "2020"],
-                "correct": [1],
-                "multi": false,
-                "r": "To zaszczytne wyróżnienie dla architektury modernistycznej Gdynia otrzymała w 2015 roku."
-            },
-            {
-                "q": "Jakie części Witomina funkcjonują jako oficjalne nazwy dzielnic?",
-                "o": ["Witomino-Radiostacja", "Witomino-Port", "Witomino-Leśniczówka", "Witomino-Centrum"],
-                "correct": [0, 2],
-                "multi": true,
-                "r": "Administracyjnie wyróżniamy Witomino-Radiostację oraz Witomino-Leśniczówkę."
-            },
-            {
-                "q": "Które z wymienionych osób są kluczowe dla historii budowy Gdyni?",
-                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Antoni Abraham"],
-                "correct": [0, 1, 2, 3],
-                "multi": true,
-                "r": "To wielkie postacie: od wizjonera Kwiatkowskiego, przez inżyniera Wendę, po lokalnych działaczy jak Radtke i Abraham."
-            },
-            {
-                "q": "Która ulica upamiętnia datę uzyskania przez Gdynię praw miejskich?",
-                "o": ["Świętojańska", "Starowiejska", "10 Lutego", "Morska"],
-                "correct": [2],
-                "multi": false,
-                "r": "Ulica 10 Lutego nawiązuje bezpośrednio do daty 10.02.1926 r."
-            },
-            {
-                "q": "Jak geograficznie definiowane jest położenie Gdyni?",
-                "o": ["Nad otwartym Morzem Bałtyckim", "Nad Zatoką Gdańską", "Nad ujściem rzeki Wisły", "Nad Zalewem Wiślanym"],
-                "correct": [1],
-                "multi": false,
-                "r": "Gdynia to miasto portowe leżące bezpośrednio nad Zatoką Gdańską."
-            },
-            {
-                "q": "Jak jaką funkcję zawodową pełnił Feliks Nowowiejski, patron Bulwaru Nadmorskiego?",
-                "o": ["Był inżynierem", "Był kompozytorem", "Był politykiem", "Był wojskowym"],
-                "correct": [1],
-                "multi": false,
-                "r": "Feliks Nowowiejski to wybitny kompozytor, twórca m.in. melodii 'Roty'."
-            },
-            {
-                "q": "Wskaż dzielnice Gdyni zaczynające się na literę 'O':",
-                "o": ["Obłuże", "Oksywie", "Orłowo", "Oliwa"],
-                "correct": [0, 1, 2],
-                "multi": true,
-                "r": "Obłuże, Oksywie i Orłowo to rdzenne dzielnice Gdyni. Oliwa leży w Gdańsku."
-            },
-            {
-                "q": "Kto założył Kościół św. Mikołaja w Gdyni-Chyloni?",
-                "o": ["Krzyżacy", "Cystersi", "Dominikanie", "Franciszkany"],
-                "correct": [0],
-                "multi": false,
-                "r": "Ten historyczny kościół w Chyloni został ufundowany przez Zakon Krzyżacki."
-            },
-            {
-                "q": "Wybierz dzielnice Gdyni, których nazwa zaczyna się na literę 'W':",
-                "o": ["Wielki Kack", "Witomino-Radiostacja", "Wzgórze Św. Maksymiliana", "Westerplatte"],
-                "correct": [0, 1, 2],
-                "multi": true,
-                "r": "To Wielki Kack, Witomino oraz Wzgórze Św. Maksymiliana."
-            },
-            {
-                "q": "Ile ryb widnieje w herbie miasta Gdyni?",
-                "o": ["Dwie", "Trzy", "Jedna", "Cztery"],
-                "correct": [0],
-                "multi": false,
-                "r": "W herbie Gdyni znajdują się dwie złote ryby zwrócone w przeciwne strony."
-            },
-            {
-                "q": "Wskaż trzy najstarsze zabytki Gdyni:",
-                "o": ["Kościół św. Mikołaja", "Kościół Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Hala Targowa"],
-                "correct": [0, 1, 2],
-                "multi": true,
-                "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
-            },
-            {
-                "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
-                "o": ["25 metrów", "15 metrów", "35 metrów", "10 metrów"],
-                "correct": [0],
-                "multi": false,
-                "r": "Obecny, podświetlany krzyż ma wysokość 25 metrów."
-            },
-            {
-                "q": "Jak nazywa się skwer upamiętniający brytyjskie miasto partnerskie Gdyni?",
-                "o": ["Skwer Plymouth", "Skwer Londyński", "Skwer Bristol", "Skwer Portsmouth"],
-                "correct": [0],
-                "multi": false,
-                "r": "Jest to Skwer Plymouth, położony w pobliżu bulwaru."
-            },
-            {
-                "q": "Kto był wizjonerem i głównym pomysłodawcą budowy portu?",
-                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Leon Staniszewski"],
-                "correct": [0],
-                "multi": false,
-                "r": "Inicjatorem politycznym i gospodarczym budowy był minister Eugeniusz Kwiatkowski."
-            },
-            {
-                "q": "W którym roku Gdynia uzyskała prawa miejskie?",
-                "o": ["1926", "1918", "1945", "1920"],
-                "correct": [0],
-                "multi": false,
-                "r": "Prawa miejskie zostały nadane Gdyni dokładnie 10 lutego 1926 roku."
-            },
-            {
-                "q": "Jak brzmi popularne hasło określające powstanie Gdyni?",
-                "o": ["Miasto z morza i marzeń", "Okno na świat", "Brama Bałtyku", "Perła Północy"],
-                "correct": [0],
-                "multi": false,
-                "r": "Hasło 'Gdynia - miasto z morza i marzeń' podkreśla błyskawiczną budowę miasta od podstaw."
-            },
-            {
-                "q": "Kogo nazywano 'Królem Kaszub'?",
-                "o": ["Antoniego Abrahama", "Jana Radtkego", "Tadeusz Wendę", "Eugeniusza Kwiatkowskiego"],
-                "correct": [0],
-                "multi": false,
-                "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
-            },
-            {
-                "q": "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
-                "o": ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"],
-                "correct": [0, 1, 2, 3, 4],
-                "multi": true,
-                "r": "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego."
-            },
-            {
-                "q": "Nad jaką zatoką leży Gdynia?",
-                "o": ["Zatoka Gdańska", "Zatoka Pucka", "Zatoka Pomorska", "Zatoka Szczecińska"],
-                "correct": [0],
-                "r": "Gdynia leży nad odnogą Bałtyku - Zatoką Gdańską."
-            },
-            {
-                "q": "Czyje imię nosi Gdyński Bulwar Nadmorski?",
-                "o": ["Feliksa Nowowiejskiego", "Jana Pawła II", "Tadeusza Wendy", "Eugeniusza Kwiatkowskiego"],
-                "correct": [0],
-                "r": "Nosi imię kompozytora Feliksa Nowowiejskiego."
-            },
-            {
-                "q": "Budową portu gdyńskiego kierował inżynier:",
-                "o": ["Tadeusz Wenda", "Eugeniusz Kwiatkowski", "Jan Radtke", "Antoni Abraham"],
-                "correct": [0],
-                "r": "To inżynier Tadeusz Wenda zaprojektował i budował port."
-            },
-            {
-                "q": "W którym roku Gdynia została uwolniona spod okupacji?",
-                "o": ["28 marca 1945", "10 lutego 1945", "1 września 1944", "11 listopada 1945"],
-                "correct": [0],
-                "r": "Walki o Gdynię zakończyły się 28 marca 1945 roku."
-            },
-            {
-                "q": "Nazwa Gdyni podczas niemiecznej okupacji to:",
-                "o": ["Gotenhafen", "Gedingen", "Zoppot", "Danzig"],
-                "correct": [0],
-                "r": "Niemcy zmienili nazwę na Gotenhafen."
-            },
-            {
-                "q": "Ile dzielnic posiada Gdynia?",
-                "o": ["21", "18", "25", "15"],
-                "correct": [0],
-                "r": "Gdynia podzielona jest na 21 dzielnic."
-            },
-            {
-                "q": "Najdłuższa ulica w Gdyni to:",
-                "o": ["Morska", "Świętojańska", "Zwycięstwa", "Chwaszczyńska"],
-                "correct": [0],
-                "r": "Ulica Morska ciągnie się kilometrami w stronę Rumi."
-            },
-            {
-                "q": "Najstarszy budynek mieszkalny w Gdyni Śródmieściu to:",
-                "o": ["Domek Abrahama", "Urząd Miasta", "Hala Targowa", "Sea Towers"],
-                "correct": [0],
-                "r": "To Domek Abrahama przy ul. Starowiejskiej."
-            },
-            {
-                "q": "Gdzie znajduje się Torpedownia?",
-                "o": ["Babie Doły", "Orłowo", "Oksywie", "Port"],
-                "correct": [0],
-                "r": "Ruiny torpedowni z II wojny są w Babich Dołach."
-            },
-            {
-                "q": "Kto jest autorem projektu herbu Gdyni?",
-                "o": ["Leon Staniszewski", "Jan Matejko", "Antoni Abraham", "Stefan Żeromski"],
-                "correct": [0],
-                "r": "Leon Staniszewski zaprojektował go w 1946 roku."
-            },
-            {
-                "q": "Jak nazywa się bezpłatna kolejka w centrum?",
-                "o": ["Kolejka na Kamienną Górę", "Tramwaj wodny", "SKM", "Gondola portowa"],
-                "correct": [0],
-                "r": "To kolejka linowo-terenowa na Kamienną Górę."
-            },
-            {
-                "q": "Co znajduje się w herbie Gdyni?",
-                "o": ["Dwie ryby przebite mieczem", "Gryf i miecz", "Kotwica i lwy", "Statek i mewy"],
-                "correct": [0],
-                "r": "W herbie są dwie żółte ryby i miecz."
-            },
-            {
-                "q": "Muzeum Emigracji mieści się w:",
-                "o": ["Dworcu Morskim", "Akwarium", "Teatrze Muzycznym", "Urzędzie Miasta"],
-                "correct": [0],
-                "r": "To historyczny punkt odpraw transatlantyków."
-            },
-            {
-                "q": "Dzielnica słynąca z klifu i mola to:",
-                "o": ["Orłowo", "Oksywie", "Babie Doły", "Redłowo"],
-                "correct": [0],
-                "r": "Orłowo to najbardziej malownicza część Gdyni."
-            },
-            {
-                "q": "Kogo upamiętnia pomnik przy Akwarium Gdyńskim?",
-                "o": ["Józefa Conrada Korzeniowskiego", "Stefana Żeromskiego", "Władysława IV", "Leonida Teligi"],
-                "correct": [0],
-                "r": "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego."
-            },
-            {
-                "q": "Czym dla Gdyni jest Zatoka Gdańska?",
-                "o": ["Odnogą Morza Bałtyckiego", "Odnogą rzeki Wisły", "Zalewem słodkowodnym", "Jeziorem przybrzeżnych"],
-                "correct": [0],
-                "r": "Geograficznie Zatoka Gdańska to duża odnoga południowego Bałtyku."
-            }
-
+{
+    "q": "Która ulica w Gdyni jest najdłuższa?",
+    "o": [
+      "Morska",
+      "Świętojańska",
+      "Władysława IV",
+      "Chwaszczyńska"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Ulica Morska jest najdłuższą arterią w mieście, ciągnącą się w stronę Rumi."
+  },
+  {
+    "q": "Jak nazywa się rzeka, która przepływa przez Gdynię i wpada do morza w Orłowie?",
+    "o": [
+      "Kacza",
+      "Radunia",
+      "Płutnica",
+      "Reda"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Kacza to największy potok w Gdyni, mający ujście w Orłowie."
+  },
+  {
+    "q": "Kto obecnie sprawuje funkcję prezydenta Gdyni?",
+    "o": [
+      "Aleksandra Kosiorek",
+      "Wojciech Szczurek",
+      "Franciszka Cegielska",
+      "Bogusław Stasiak"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Aleksandra Kosiorek objęła urząd w 2024 roku jako pierwsza kobieta na tym stanowisku."
+  },
+  {
+    "q": "W którym roku Gdynia otrzymała prawa miejskie?",
+    "o": [
+      "10 lutego 1926",
+      "11 listopada 1918",
+      "1 września 1939",
+      "1 stycznia 1945"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia otrzymała prawa miejskie 10 lutego 1926 roku."
+  },
+  {
+    "q": "Jak nazywało się pierwsze kino otwarte w Gdyni?",
+    "o": [
+      "Czarodziejka",
+      "Goplana",
+      "Warszawa",
+      "Apollo"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Pierwszym gdyńskim kinem była 'Czarodziejka'."
+  },
+  {
+    "q": "Która dzielnica Gdyni posiada największą liczbę mieszkańców?",
+    "o": [
+      "Chylonia",
+      "Śródmieście",
+      "Witomino",
+      "Orłowo"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Chylonia jest najludniejszą dzielnicą dzięki gęstej zabudowie mieszkaniowej."
+  },
+  {
+    "q": "Jaką nazwę nosiła Gdynia podczas niemieckiej okupacji?",
+    "o": [
+      "Gotenhafen",
+      "Danzig",
+      "Gedingen",
+      "Zoppot"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Niemcy zmienili nazwę miasta na Gotenhafen."
+  },
+  {
+    "q": "Co znajduje się w herbie Gdyni?",
+    "o": [
+      "Dwie ryby przebite mieczem",
+      "Gryf i miecz",
+      "Kotwica i lwy",
+      "Statek i mewy"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Herb przedstawia dwie złote ryby przebite mieczem na błękitnym tle."
+  },
+  {
+    "q": "Ile dzielnic posiada obecnie Gdynia?",
+    "o": [
+      "21",
+      "16",
+      "25",
+      "10"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia jest podzielona administracyjnie na 21 dzielnic."
+  },
+  {
+    "q": "Budową portu gdyńskiego kierował inżynier:",
+    "o": [
+      "Tadeusz Wenda",
+      "Eugeniusz Kwiatkowski",
+      "Jan Radtke",
+      "Antoni Abraham"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Inżynier Tadeusz Wenda był autorem projektu i kierownikiem budowy portu."
+  },
+  {
+    "q": "W którym roku Gdynia została uwolniona spod okupacji niemieckiej?",
+    "o": [
+      "28 marca 1945",
+      "10 lutego 1945",
+      "1 września 1944",
+      "11 listopada 1945"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Walki o wyzwolenie Gdyni zakończyły się 28 marca 1945 roku."
+  },
+  {
+    "q": "Najstarszy budynek mieszkalny w Gdyni Śródmieściu to:",
+    "o": [
+      "Domek Abrahama",
+      "Urząd Miasta",
+      "Hala Targowa",
+      "Sea Towers"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Jest to Domek Abrahama przy ulicy Starowiejskiej."
+  },
+  {
+    "q": "Gdzie znajduje się słynna Torpedownia?",
+    "o": [
+      "Babie Doły",
+      "Orłowo",
+      "Oksywie",
+      "Port"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Najsłynniejsza torpedownia znajduje się w dzielnicy Babie Doły."
+  },
+  {
+    "q": "Kto jest autorem projektu herbu Gdyni z 1936 roku?",
+    "o": [
+      "Leon Staniszewski",
+      "Jan Matejko",
+      "Antoni Abraham",
+      "Stefan Żeromski"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Projektantem herbu był Leon Staniszewski. Jego projekt zajął drugie miejsce w konkursie, ale został oficjalnie zatwierdzony w 1936 roku."
+  },
+  {
+    "q": "Jak nazywa się bezpłatna kolejka w centrum miasta?",
+    "o": [
+      "Kolejka na Kamienną Górę",
+      "Tramwaj wodny",
+      "SKM",
+      "Gondola portowa"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Jest to kolejka linowo-terenowa wjeżdżająca na punkt widokowy Kamienna Góra."
+  },
+  {
+    "q": "Dzielnica słynąca z mola i klifu to:",
+    "o": [
+      "Orłowo",
+      "Oksywie",
+      "Babie Doły",
+      "Redłowo"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Orłowo to jedna z najbardziej malowniczych dzielnic Gdyni."
+  },
+  {
+    "q": "Najstarszy kościół w Gdyni znajduje się na:",
+    "o": [
+      "Oksywiu",
+      "Obłużu",
+      "Leszczynkach",
+      "Witomine"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Kościół św. Michała Archanioła na Oksywiu pochodzi z XIII wieku i jest najstarszą świątynią w mieście."
+  },
+  {
+    "q": "Jak nazywa się hala widowiskowo-sportowa przy ul. Górskiego?",
+    "o": [
+      "Gdynia Arena",
+      "Hala Gier",
+      "Centrum Sportu",
+      "Stadion Miejski"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia Arena to nowoczesny obiekt goszczący wydarzenia sportowe i koncerty."
+  },
+  {
+    "q": "Gdynia posiada unikatową w Polsce sieć transportu:",
+    "o": [
+      "Trolejbusową",
+      "Metra",
+      "Tramwajową",
+      "Kolei linowej"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia jest jednym z zaledwie trzech miast w Polsce, które korzystają z trolejbusów."
+  },
+  {
+    "q": "Rezerwat przyrody chroniący gdyński klif to:",
+    "o": [
+      "Kępa Redłowska",
+      "Lasy Chylońskie",
+      "Dolina Kaczej",
+      "Kacze Łęgi"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Kępa Redłowska to pierwszy rezerwat utworzony na Pomorzu."
+  },
+  {
+    "q": "Jak nazywa się festiwal muzyczny na lotnisku w Kosakowie?",
+    "o": [
+      "Open'er Festival",
+      "Ladies' Jazz",
+      "Globaltica",
+      "Gdynia Blues Festival"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "To jeden z największych festiwalu w Europie, ściągający tysiące fanów do Gdyni."
+  },
+  {
+    "q": "Który styl architektoniczny dominuje w centrum Gdyni?",
+    "o": [
+      "Modernizm",
+      "Barok",
+      "Gotyk",
+      "Klasycyzm"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia jest perłą modernizmu, z unikatowym na skalę światową układem urbanistycznym."
+  },
+  {
+    "q": "Jak nazywa się najwyższy budynek mieszkalny w Gdyni?",
+    "o": [
+      "Sea Towers",
+      "Altus",
+      "Modern Tower",
+      "Plac Unii"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Sea Towers to dwa wieżowce przy nabrzeżu, będące dominantą architektoniczną miasta."
+  },
+  {
+    "q": "Podaj numer słynnego III Liceum Ogólnokształcącego:",
+    "o": [
+      "III LO (Gdyńska Trójka)",
+      "I LO",
+      "V LO",
+      "X LO"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdyńska 'Trójka' od lat zajmuje czołowe miejsca w ogólnopolskich rankingach szkół."
+  },
+  {
+    "q": "W Gdyni odbywa się festiwal Designu o nazwie:",
+    "o": [
+      "Gdynia Design Days",
+      "Design Expo",
+      "Art & Design",
+      "Gdynia Creative"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia Design Days to kluczowe wydarzenie dla branży projektowej w regionie."
+  },
+  {
+    "q": "Jaką nazwę nosi gdyńska drużyna piłkarska?",
+    "o": [
+      "Arka Gdynia",
+      "Bałtyk Gdynia",
+      "Flota Gdynia",
+      "Gdyńskie Lwy"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "multi": true,
+    "r": "W Gdyni działają dwa historyczne kluby: Arka oraz Bałtyk."
+  },
+  {
+    "q": "W Gdyni na ul. Starowiejskiej mieszkał znany działacz kaszubski:",
+    "o": [
+      "Antoni Abraham",
+      "Stefan Żeromski",
+      "Jan Radtke",
+      "Eugeniusz Kwiatkowski"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Antoni Abraham, nazywany 'Królem Kaszubów', mieszkał w domku przy ul. Starowiejskiej, który dziś jest muzeum."
+  },
+  {
+    "q": "Święty Mikołaj jest patronem Gdyni oraz której dzielnicy?",
+    "o": [
+      "Chyloni",
+      "Orłowa",
+      "Oksywia",
+      "Śródmieścia"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Św. Mikołaj jest patronem Gdyni, a w Chyloni znajduje się historyczny kościół pod jego wezwaniem."
+  },
+  {
+    "q": "Jaką funkcję pełnił Jan Radtke?",
+    "o": [
+      "Pierwszy sołtys Gdyni",
+      "Komisarz portu",
+      "Budowniczy dworca",
+      "Admirał floty"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Jan Radtke był pierwszym sołtysem Gdyni i wielkim zwolennikiem budowy miasta."
+  },
+  {
+    "q": "Skwer Plymouth upamiętnia miasto partnerskie z:",
+    "o": [
+      "Wielkiej Brytanii",
+      "USA",
+      "Francji",
+      "Niemiec"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia od lat współpracuje z brytyjskim Plymouth."
+  },
+  {
+    "q": "Co symbolizuje 'Maszt' przy Urzędzie Miasta?",
+    "o": [
+      "Więzi Gdyni z morzem",
+      "Dawny ratusz",
+      "Radiostację",
+      "Pomnik techniki"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Wysoki maszt flagowy przed Urzędem Miasta to jeden z symboli morskiego charakteru Gdyni."
+  },
+  {
+    "q": "Ile metrów ma molo w Orłowie?",
+    "o": [
+      "180 metrów",
+      "511 metrów",
+      "300 metrów",
+      "100 metrów"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Molo w Orłowie ma 180 metrów długości (jest mniejsze od sopockiego, ale równie urokliwe)."
+  },
+  {
+    "q": "Jak nazywa się charakterystyczny statek-muzeum cumujący przy Nabrzeżu Pomorskim?",
+    "o": [
+      "Dar Pomorza",
+      "Dar Młodzieży",
+      "Zawisza Czarny",
+      "Fryderyk Chopin"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Dar Pomorza, zwany 'Białą Fregatą', to jedna z najważniejszych atrakcji turystycznych."
+  },
+  {
+    "q": "W której dzielnicy znajduje się Adventure Park Gdynia?",
+    "o": [
+      "Kolibki (Orłowo)",
+      "Wiczlino",
+      "Demptowo",
+      "Leszczynki"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Adventure Park mieści się na terenie dawnego folwarku Kolibki."
+  },
+  {
+    "q": "Gdzie w Gdyni odbywają się największe wystawy i targi?",
+    "o": [
+      "Polsat Plus Arena Gdynia",
+      "Gdynia Arena",
+      "Centrum Konferencyjne Pomorskiego Parku Naukowo-Technologicznego",
+      "Hale Targowe"
+    ],
+    "correct": [
+      2
+    ],
+    "r": "Pomorski Park Naukowo-Technologiczny to serce innowacji i nowoczesnych konferencji."
+  },
+  {
+    "q": "Podaj liczbę zameldowanych mieszkańców Gdyni według danych z 2025 roku:",
+    "o": [
+      "246 309",
+      "224 824",
+      "250 000",
+      "239 325"
+    ],
+    "correct": [
+      3
+    ],
+    "multi": false,
+    "r": "Na koniec 2025 roku liczba zameldowanych mieszkańców wynosiła dokładnie 239 325 osoby."
+  },
+  {
+    "q": "Które z wymienionych to pełne nazwy gdyńskich teatrów?",
+    "o": [
+      "Teatr Miejski im. Witolda Gombrowicza",
+      "Teatr Muzyczny im. Danuty Baduszkowej",
+      "Teatr Narodowy",
+      "Teatr Wybrzeże"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "multi": true,
+    "r": "Główne sceny miasta to Teatr Miejski im. W. Gombrowicza oraz słynny Teatr Muzyczny im. D. Baduszkowej."
+  },
+  {
+    "q": "Wskaż uczelnie wyższe, które mają swoją siedzibę w Gdyni:",
+    "o": [
+      "Akademia Marynarki Wojennej",
+      "Uniwersytet Morski",
+      "Akademia Muzyczna",
+      "Uniwersytet Gdański"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "multi": true,
+    "r": "Gdynia jest siedzibą Akademii Marynarki Wojennej oraz Uniwersytetu Morskiego."
+  },
+  {
+    "q": "Wybierz oficjalne dzielnice Gdyni:",
+    "o": [
+      "Babie Doły",
+      "Chylonia",
+      "Cisowa",
+      "Działki Leśne",
+      "Dąbrowa",
+      "Oliwa"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "multi": true,
+    "r": "Babie Doły, Chylonia, Cisowa, Działki Leśne i Dąbrowa to jedne z 21 dzielnic Gdyni."
+  },
+  {
+    "q": "Zaznacz poprawne nazwy dzielnic Gdyni:",
+    "o": [
+      "Grabówek",
+      "Kamienna Góra",
+      "Karwiny",
+      "Leszczynki",
+      "Mały Kack",
+      "Sopot Centrum"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "multi": true,
+    "r": "Do Gdyni należą m.in. Grabówek, luksusowa Kamienna Góra oraz rozległe Karwiny."
+  },
+  {
+    "q": "Który z tych okrętów jest udostępniony do zwiedzania jako muzeum w porcie?",
+    "o": [
+      "ORP Błyskawica",
+      "ORP Orzeł",
+      "ORP Grom",
+      "ORP Wicher"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Niszczyciel ORP Błyskawica to legenda floty wojennej i najstarszy zachowany okręt tego typu."
+  },
+  {
+    "q": "Gdzie odbywa się coroczny Festiwal Polskich Filmów Fabularnych w Gdyni?",
+    "o": [
+      "W Teatrze Muzycznym w Gdyni",
+      "W Urzędzie Miasta",
+      "W Hali Gdynia Arena",
+      "W Muzeum Emigracji"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "To najważniejsze święto polskiego kina odbywa się w Teatrze Muzycznym w Gdyni."
+  },
+  {
+    "q": "Z jakiego materiału wykonany był pierwszy krzyż na Kamiennej Górze?",
+    "o": [
+      "Z drewna",
+      "Z metalu",
+      "Z betonu",
+      "Z kamienia"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Pierwszy krzyż stanął na Kamiennej Górze w 1920 roku i był konstrukcją drewnianą."
+  },
+  {
+    "q": "W którym roku historyczny układ urbanistyczny śródmieścia Gdyni został uznany za Pomnik Historii?",
+    "o": [
+      "2010",
+      "2015",
+      "1926",
+      "2020"
+    ],
+    "correct": [
+      1
+    ],
+    "multi": false,
+    "r": "To zaszczytne wyróżnienie dla architektury modernistycznej Gdynia otrzymała w 2015 roku."
+  },
+  {
+    "q": "Jakie części Witomina funkcjonują jako oficjalne nazwy dzielnic?",
+    "o": [
+      "Witomino-Radiostacja",
+      "Witomino-Port",
+      "Witomino-Leśniczówka",
+      "Witomino-Centrum"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "multi": true,
+    "r": "Administracyjnie wyróżniamy Witomino-Radiostację oraz Witomino-Leśniczówkę."
+  },
+  {
+    "q": "Które z wymienionych osób są kluczowe dla historii budowy Gdyni?",
+    "o": [
+      "Eugeniusz Kwiatkowski",
+      "Tadeusz Wenda",
+      "Jan Radtke",
+      "Antoni Abraham"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "multi": true,
+    "r": "To wielkie postacie: od wizjonera Kwiatkowskiego, przez inżyniera Wendę, po lokalnych działaczy jak Radtke i Abraham."
+  },
+  {
+    "q": "Która ulica upamiętnia datę uzyskania przez Gdynię praw miejskich?",
+    "o": [
+      "Świętojańska",
+      "Starowiejska",
+      "10 Lutego",
+      "Morska"
+    ],
+    "correct": [
+      2
+    ],
+    "multi": false,
+    "r": "Ulica 10 Lutego nawiązuje bezpośrednio do daty 10.02.1926 r."
+  },
+  {
+    "q": "Jak geograficznie definiowane jest położenie Gdyni?",
+    "o": [
+      "Nad otwartym Morzem Bałtyckim",
+      "Nad Zatoką Gdańską",
+      "Nad ujściem rzeki Wisły",
+      "Nad Zalewem Wiślanym"
+    ],
+    "correct": [
+      1
+    ],
+    "multi": false,
+    "r": "Gdynia to miasto portowe leżące bezpośrednio nad Zatoką Gdańską."
+  },
+  {
+    "q": "Jaką funkcję zawodową pełnił Feliks Nowowiejski, patron Bulwaru Nadmorskiego?",
+    "o": [
+      "Był inżynierem",
+      "Był kompozytorem",
+      "Był politykiem",
+      "Był wojskowym"
+    ],
+    "correct": [
+      1
+    ],
+    "multi": false,
+    "r": "Feliks Nowowiejski to wybitny kompozytor, twórca m.in. melodii 'Roty'."
+  },
+  {
+    "q": "Wskaż dzielnice Gdyni zaczynające się na literę 'O':",
+    "o": [
+      "Obłuże",
+      "Oksywie",
+      "Orłowo",
+      "Oliwa"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "Obłuże, Oksywie i Orłowo to rdzenne dzielnice Gdyni. Oliwa leży w Gdańsku."
+  },
+  {
+    "q": "Kto założył Kościół św. Mikołaja w Gdyni-Chyloni?",
+    "o": [
+      "Krzyżacy",
+      "Cystersi",
+      "Dominikanie",
+      "Franciszkany"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Ten historyczny kościół w Chyloni został ufundowany przez Zakon Krzyżacki."
+  },
+  {
+    "q": "Wybierz dzielnice Gdyni, których nazwa zaczyna się na literę 'W':",
+    "o": [
+      "Wielki Kack",
+      "Witomino-Radiostacja",
+      "Wzgórze Św. Maksymiliana",
+      "Westerplatte"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "To Wielki Kack, Witomino oraz Wzgórze Św. Maksymiliana."
+  },
+  {
+    "q": "Ile ryb widnieje w herbie miasta Gdyni?",
+    "o": [
+      "Dwie",
+      "Trzy",
+      "Jedna",
+      "Cztery"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "W herbie Gdyni znajdują się dwie złote ryby zwrócone w przeciwne strony."
+  },
+  {
+    "q": "Wskaż trzy najstarsze zabytki Gdyni:",
+    "o": [
+      "Kościół św. Mikołaja",
+      "Kościół Michała Archanioła na Oksywiu",
+      "Domek Antoniego Abrahama",
+      "Hala Targowa"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
+  },
+  {
+    "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
+    "o": [
+      "25 metrów",
+      "15 metrów",
+      "35 metrów",
+      "10 metrów"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Obecny, podświetlany krzyż ma wysokość 25 metrów."
+  },
+  {
+    "q": "Jak nazywa się skwer upamiętniający brytyjskie miasto partnerskie Gdyni?",
+    "o": [
+      "Skwer Plymouth",
+      "Skwer Londyński",
+      "Skwer Bristol",
+      "Skwer Portsmouth"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Jest to Skwer Plymouth, położony w pobliżu bulwaru."
+  },
+  {
+    "q": "Kto był wizjonerem i głównym pomysłodawcą budowy portu?",
+    "o": [
+      "Eugeniusz Kwiatkowski",
+      "Tadeusz Wenda",
+      "Jan Radtke",
+      "Leon Staniszewski"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Inicjatorem politycznym i gospodarczym budowy był minister Eugeniusz Kwiatkowski."
+  },
+  {
+    "q": "Jak brzmi popularne hasło określające powstanie Gdyni?",
+    "o": [
+      "Miasto z morza i marzeń",
+      "Okno na świat",
+      "Brama Bałtyku",
+      "Perła Północy"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Hasło 'Gdynia - miasto z morza i marzeń' podkreśla błyskawiczną budowę miasta od podstaw."
+  },
+  {
+    "q": "Kogo nazywano 'Królem Kaszub'?",
+    "o": [
+      "Antoniego Abrahama",
+      "Jana Radtkego",
+      "Tadeusza Wendę",
+      "Eugeniusza Kwiatkowskiego"
+    ],
+    "correct": [
+      0
+    ],
+    "multi": false,
+    "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
+  },
+  {
+    "q": "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
+    "o": [
+      "Świętojańska",
+      "10 Lutego",
+      "Starowiejska",
+      "Morska",
+      "Aleja Piłsudskiego",
+      "Ulica Szeroka"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "multi": true,
+    "r": "Główne osie miasta to Świętojańska, 10 Lutego, Starowiejska, Morska oraz Al. Piłsudskiego."
+  },
+  {
+    "q": "Nad jaką zatoką leży Gdynia?",
+    "o": [
+      "Zatoka Gdańska",
+      "Zatoka Pucka",
+      "Zatoka Pomorska",
+      "Zatoka Szczecińska"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Gdynia leży nad odnogą Bałtyku - Zatoką Gdańską."
+  },
+  {
+    "q": "Czyje imię nosi Gdyński Bulwar Nadmorski?",
+    "o": [
+      "Feliksa Nowowiejskiego",
+      "Jana Pawła II",
+      "Tadeusza Wendy",
+      "Eugeniusza Kwiatkowskiego"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Nosi imię kompozytora Feliksa Nowowiejskiego."
+  },
+  {
+    "q": "Muzeum Emigracji mieści się w:",
+    "o": [
+      "Dworcu Morskim",
+      "Akwarium",
+      "Teatrze Muzycznym",
+      "Urzędzie Miasta"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "To historyczny punkt odpraw transatlantyków."
+  },
+  {
+    "q": "Kogo upamiętnia pomnik przy Akwarium Gdyńskim?",
+    "o": [
+      "Józefa Conrada Korzeniowskiego",
+      "Stefana Żeromskiego",
+      "Władysława IV",
+      "Leonida Teligi"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego."
+  },
+  {
+    "q": "Czym dla Gdyni jest Zatoka Gdańska?",
+    "o": [
+      "Odnogą Morza Bałtyckiego",
+      "Odnogą rzeki Wisły",
+      "Zalewem słodkowodnym",
+      "Jeziorem przybrzeżnych"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Geograficznie Zatoka Gdańska to duża odnoga południowego Bałtyku."
+  },
+  {
+    "q": "Kto był pierwszym polskim wójtem Gdyni?",
+    "o": [
+      "Jan Radtke",
+      "Antoni Abraham",
+      "Eugeniusz Kwiatkowski",
+      "Tadeusz Wenda"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Jan Radtke pełnił funkcję pierwszego polskiego wójta Gdyni."
+  },
+  {
+    "q": "Kto był prezydentem Gdyni w latach 1990-1998?",
+    "o": [
+      "Franciszka Cegielska",
+      "Wojciech Szczurek",
+      "Aleksandra Kosiorek",
+      "Bogusław Stasiak"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Franciszka Cegielska była polską polityk i prezydentem Gdyni przez 8 lat."
+  },
+  {
+    "q": "Kto był prezydentem Gdyni od 1998 roku?",
+    "o": [
+      "Wojciech Szczurek",
+      "Aleksandra Kosiorek",
+      "Franciszka Cegielska",
+      "Jan Radtke"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Wojciech Szczurek, prawnik z wykształcenia, pełnił funkcję prezydenta od 1998 roku."
+  },
+  {
+    "q": "Kto stworzył melodię 'Roty' ('Nie rzucim ziemi skąd nasz ród')?",
+    "o": [
+      "Feliks Nowowiejski",
+      "Antoni Abraham",
+      "Stefan Żeromski",
+      "Jan Kochanowski"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Feliks Nowowiejski to wybitny polski kompozytor, twórca melodii 'Roty'."
+  },
+  {
+    "q": "Jakie wykształcenie ma Wojciech Szczurek, długoletni prezydent Gdyni?",
+    "o": [
+      "Prawnicze",
+      "Inżynieryjne",
+      "Ekonomiczne",
+      "Medyczne"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Wojciech Szczurek jest z wykształcenia prawnikiem."
+  },
+  {
+    "q": "Którzy z wymienionych pełnili funkcję prezydenta Gdyni?",
+    "o": [
+      "Aleksandra Kosiorek",
+      "Wojciech Szczurek",
+      "Franciszka Cegielska",
+      "Tadeusz Wenda",
+      "Antoni Abraham"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "Prezydentami Gdyni byli kolejno: Franciszka Cegielska (1990-1998), Wojciech Szczurek (od 1998) oraz Aleksandra Kosiorek (od 2024)."
+  },
+  {
+    "q": "Zaznacz ulice znajdujące się w Gdyni:",
+    "o": [
+      "Świętojańska",
+      "10 Lutego",
+      "Starowiejska",
+      "Długi Targ",
+      "Mariacka",
+      "Władysława IV"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "multi": true,
+    "r": "Świętojańska, 10 Lutego, Starowiejska i Władysława IV to główne ulice Gdyni. Długi Targ i Mariacka znajdują się w Gdańsku."
+  },
+  {
+    "q": "W którym roku został oficjalnie zatwierdzony herb Gdyni?",
+    "o": [
+      "1936",
+      "1926",
+      "1946",
+      "1945"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Herb Gdyni został oficjalnie zatwierdzony w 1936 roku."
+  },
+  {
+    "q": "Co symbolizuje miecz w herbie Gdyni?",
+    "o": [
+      "Obronny charakter miasta",
+      "Rybołówstwo",
+      "Handel morski",
+      "Przeszłość rycerską"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Miecz w herbie symbolizuje obronny charakter miasta i przypomina o walkach morskich. Nawiązuje również do proporca polskiej Marynarki Wojennej."
+  },
+  {
+    "q": "Jakiego koloru jest tło herbu Gdyni?",
+    "o": [
+      "Błękitnego",
+      "Złotego",
+      "Srebrnego",
+      "Czerwonego"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Herb Gdyni przedstawia złote ryby na błękitnym tle, symbolizującym morze."
+  },
+  {
+    "q": "Jakiego koloru są ryby w herbie Gdyni?",
+    "o": [
+      "Złotego",
+      "Srebrnego",
+      "Niebieskiego",
+      "Czerwonego"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Ryby w herbie są złote (żółte), co kontrastuje z błękitnym tłem."
+  },
+  {
+    "q": "Co symbolizują elementy herbu Gdyni?",
+    "o": [
+      "Ryby - morski charakter miasta",
+      "Miecz - obronny charakter miasta",
+      "Tarcza - handel",
+      "Korona - królewskie pochodzenie"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "multi": true,
+    "r": "Ryby symbolizują morski charakter Gdyni, a miecz przypomina o obronnym charakterze miasta i walkach morskich."
+  },
+  {
+    "q": "W jakich kierunkach są zwrócone ryby w herbie Gdyni?",
+    "o": [
+      "W przeciwnych kierunkach (wschód i zachód)",
+      "Obie na wschód",
+      "Obie na zachód",
+      "Obie w górę"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Dwie ryby w herbie są zwrócone w przeciwnych kierunkach - jedna na wschód, druga na zachód."
+  },
+  {
+    "q": "W którym roku została oficjalnie zatwierdzona flaga Gdyni?",
+    "o": [
+      "1994",
+      "1926",
+      "1936",
+      "1945"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Flaga Gdyni została zatwierdzona przez Radę Miasta 20 kwietnia 1994 roku."
+  },
+  {
+    "q": "Jakie kolory ma flaga Gdyni?",
+    "o": [
+      "Biały i niebieski",
+      "Czerwony i biały",
+      "Niebieski i żółty",
+      "Biały i czerwony"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Flaga Gdyni to dwubarwny proporczyk w kolorach białym (góra) i niebieskim (dół)."
+  },
+  {
+    "q": "Jakie proporcje ma flaga Gdyni (szerokość do długości)?",
+    "o": [
+      "5:8",
+      "1:2",
+      "2:3",
+      "3:5"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Flaga Gdyni ma proporcje 5:8, co oznacza, że jest 1,6 razy dłuższa niż szeroka."
+  },
+  {
+    "q": "Kto zaprojektował flagę Gdyni?",
+    "o": [
+      "Józef Jazierski",
+      "Leon Staniszewski",
+      "Zygmunt Kamiński",
+      "Antoni Abraham"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Autorem projektu flagi Gdyni jest Józef Jazierski."
+  },
+  {
+    "q": "Co symbolizują kolory flagi Gdyni?",
+    "o": [
+      "Niebo i morze",
+      "Słońce i piasek",
+      "Las i łąkę",
+      "Dzień i noc"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Białe i niebieskie pasy symbolizują niebo i morze, podkreślając morski charakter Gdyni."
+  },
+  {
+    "q": "Ile pasów ma flaga Gdyni?",
+    "o": [
+      "Dwa",
+      "Trzy",
+      "Cztery",
+      "Jeden"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Flaga Gdyni składa się z dwóch równych poziomych pasów - białego i niebieskiego."
+  },
+  {
+    "q": "Dokładna data zatwierdzenia flagi Gdyni to:",
+    "o": [
+      "20 kwietnia 1994",
+      "10 lutego 1926",
+      "28 marca 1945",
+      "1 stycznia 1994"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Flaga została oficjalnie zatwierdzona 20 kwietnia 1994 roku przez Radę Miasta Gdyni."
+  },
+  {
+    "q": "Jakie są cechy flagi Gdyni?",
+    "o": [
+      "Dwubarwna (bicolor)",
+      "Ma proporcje 5:8",
+      "Składa się z poziomych pasów",
+      "Ma gwiazdę pośrodku",
+      "Jest czerwono-biała"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "Flaga Gdyni to dwubarwny proporczyk o proporcjach 5:8, złożony z dwóch poziomych pasów - białego i niebieskiego."
+  },
+  {
+    "q": "Kto zaprojektował logo 'GDYNIA moje miasto'?",
+    "o": [
+      "Jacek Musiałski",
+      "Józef Jazierski",
+      "Leon Staniszewski",
+      "Zygmunt Kamiński"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Logo 'GDYNIA moje miasto' zaprojektował Jacek Musiałski."
+  },
+  {
+    "q": "W którym roku powstało logo 'GDYNIA moje miasto'?",
+    "o": [
+      "2009",
+      "1994",
+      "2015",
+      "2020"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Logo zostało stworzone w wyniku konkursu przeprowadzonego w styczniu 2009 roku."
+  },
+  {
+    "q": "Jaki główny element graficzny znajduje się w logo 'GDYNIA moje miasto'?",
+    "o": [
+      "Stylizowane żagle",
+      "Kotwica",
+      "Fala morska",
+      "Latarnia morska"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Logo zawiera stylizowane żagle, symbolizujące morski charakter miasta."
+  },
+  {
+    "q": "Jak brzmi pełne hasło logo Gdyni?",
+    "o": [
+      "GDYNIA moje miasto",
+      "GDYNIA miasto z morza",
+      "GDYNIA perła Bałtyku",
+      "GDYNIA miasto młodych"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Oficjalne logo Gdyni zawiera hasło 'GDYNIA moje miasto'."
+  },
+  {
+    "q": "W którym miesiącu 2009 roku odbył się konkurs na logo Gdyni?",
+    "o": [
+      "Styczeń",
+      "Luty",
+      "Kwiecień",
+      "Czerwiec"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Konkurs na logo został przeprowadzony w styczniu 2009 roku."
+  },
+  {
+    "q": "Co symbolizują żagle w logo 'GDYNIA moje miasto'?",
+    "o": [
+      "Morski charakter miasta",
+      "Handel",
+      "Turystykę",
+      "Sport"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Stylizowane żagle w logo symbolizują morski, żeglarski charakter Gdyni."
+  },
+  {
+    "q": "Jak nazywa się operator sieci trolejbusowej w Gdyni?",
+    "o": [
+      "ZKM Gdynia",
+      "MPK Gdynia",
+      "PKM Gdynia",
+      "GTM Gdynia"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "ZKM Gdynia (Zarząd Komunikacji Miejskiej) zarządza siecią trolejbusową w Gdyni."
+  },
+  {
+    "q": "Od jakiego słowa pochodzi nazwa 'Gdynia'?",
+    "o": [
+      "Od słowa oznaczającego 'mokrą, bagienną' (od nazwy potoku)",
+      "Od słowa 'gdak' (ptactwo)",
+      "Od nazwiska właściciela",
+      "Od słowa 'gdański'"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Nazwa 'Gdynia' pochodzi od słowa oznaczającego 'mokrą, bagienną' - od nazwy potoku."
+  },
+  {
+    "q": "Jak nazywa się malowniczy klif na obrzeżach Gdyni?",
+    "o": [
+      "Klif Orłowski",
+      "Klif Redłowski",
+      "Klif Gdyński",
+      "Klif Oksywski"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Malowniczy klif w Orłowie nazywa się Klif Orłowski."
+  },
+  {
+    "q": "W której dzielnicy Gdyni znajduje się popularna plaża oprócz Orłowa?",
+    "o": [
+      "Babie Doły",
+      "Oksywie",
+      "Kamienna Góra",
+      "Chylonia"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Dwie najpopularniejsze plaże w Gdyni znajdują się w Orłowie oraz w Babich Dołach."
+  },
+  {
+    "q": "Które z wymienionych to popularne plaże w Gdyni?",
+    "o": [
+      "Plaża w Orłowie",
+      "Plaża w Babich Dołach",
+      "Plaża w Sopocie",
+      "Plaża w Oksywiu",
+      "Plaża Jelitkowo"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "multi": true,
+    "r": "Dwie najpopularniejsze plaże w Gdyni to plaża w Orłowie oraz plaża w Babich Dołach."
+  },
+  {
+    "q": "Jak nazywa się centrum nauki w Gdyni, w którym dzieci mogą samodzielnie przeprowadzać doświadczenia?",
+    "o": [
+      "Centrum Nauki EXPERYMENT",
+      "Hevelianum",
+      "Copernicus Science Centre",
+      "Centrum Nauki Gdynia"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Centrum Nauki EXPERYMENT to interaktywne centrum, gdzie dzieci mogą samodzielnie przeprowadzać eksperymenty naukowe."
+  },
+  {
+    "q": "Który król Polski nadał Gdyni (wtedy wsi rybackiej) prawa do połowy ryb?",
+    "o": [
+      "Zygmunt Stary",
+      "Władysław IV",
+      "Kazimierz Wielki",
+      "Bolesław Chrobry"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Król Zygmunt Stary nadał Gdyni, gdy była jeszcze małą wsią rybacką, prawa do połowy ryb."
+  },
+  {
+    "q": "Jaką wysokość ma Kamienna Góra (n.p.m.)?",
+    "o": [
+      "52 metry",
+      "72 metry",
+      "42 metry",
+      "62 metry"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Kamienna Góra wznosi się na wysokość 52 metrów nad poziomem morza."
+  },
+  {
+    "q": "Jaka nazwa nosi jeden ze skwerów w Gdyni oprócz Skweru Kościuszki?",
+    "o": [
+      "Skwer Arki Gdynia",
+      "Skwer Batorego",
+      "Skwer Żaglowca",
+      "Skwer Portowy"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "W Gdyni znajdują się między innymi Skwer Kościuszki oraz Skwer Arki Gdynia."
+  },
+  {
+    "q": "Komu poświęcony jest pomnik znajdujący się przed Urzędem Miasta?",
+    "o": [
+      "Ofiarom grudnia",
+      "Ofiarom wojny",
+      "Żołnierzom AK",
+      "Marynarzom"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Przed Urzędem Miasta w Gdyni stoi pomnik poświęcony Ofiarom Grudnia."
+  },
+  {
+    "q": "Jak nazywał się kontradmirał, dowódca obrony Wybrzeża w 1939 roku?",
+    "o": [
+      "Józef Unrug",
+      "Tadeusz Wenda",
+      "Kazimierz Porębski",
+      "Xawery Czernicki"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Kontradmirał Józef Unrug był dowódcą obrony lądowej Wybrzeża w 1939 roku."
+  },
+  {
+    "q": "Komu poświęcony jest pomnik stojący przy ulicy Świętojańskiej u stóp Kamiennej Góry?",
+    "o": [
+      "Harcerzom",
+      "Żołnierzom",
+      "Marynarzom",
+      "Rybakom"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "U stóp Kamiennej Góry przy ulicy Świętojańskiej znajduje się pomnik poświęcony Harcerzom."
+  },
+  {
+    "q": "Imię i nazwisko którego króla nosił ostatni statek pasażerski Polski?",
+    "o": [
+      "Stefan Batory",
+      "Władysław IV",
+      "Zygmunt Stary",
+      "Kazimierz Wielki"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Ostatni polski statek pasażerski nosił nazwę 'Stefan Batory'."
+  },
+  {
+    "q": "Kim był Karol Olgierd Borchardt?",
+    "o": [
+      "Marynarz, pisarz, kapitan żeglugi wielkiej",
+      "Architekt i urbanista",
+      "Prezydent miasta",
+      "Inżynier portowy"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Karol Olgierd Borchardt był marynarzem, pisarzem i kapitanem żeglugi wielkiej."
+  },
+  {
+    "q": "Komu poświęcony jest pomnik znajdujący się przed Dworcem Morskim w Gdyni?",
+    "o": [
+      "Ludziom Morza",
+      "Emigrantom",
+      "Marynarzom",
+      "Rybakom"
+    ],
+    "correct": [
+      0
+    ],
+    "r": "Przed Dworcem Morskim w Gdyni stoi pomnik poświęcony Ludziom Morza."
+  },
+  {
+    "q": "Które z wymienionych to skwery znajdujące się w Gdyni?",
+    "o": [
+      "Skwer Kościuszki",
+      "Skwer Arki Gdynia",
+      "Skwer Plymouth",
+      "Skwer Neptuna",
+      "Skwer Gdański"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "multi": true,
+    "r": "W Gdyni znajdują się między innymi: Skwer Kościuszki, Skwer Arki Gdynia oraz Skwer Plymouth."
+  }
 
         ];
 
-        // Dodaj brakujące pytania do pełnej bazy 50 (logika wypełnienia)
-        // [W tym miejscu w kodzie są wszystkie pytania z poprzednich wersji, łącznie 50 pozycji]
 
         let quizData = [];
         let currentIdx = 0;
         let score = 0;
+        let autoNextTimer = null; // timer handle for automatic next-question
 
         function startQuizMode(mode) {
+            // Filter logic:
+            // - 'monuments' -> only questions that have any non-empty img (local or remote)
+            // - 'noMonuments' -> only questions without img (no img property or empty string)
             let filteredData = rawData.filter(q => {
                 if (mode === 'monuments') {
-                    return q.img && q.img !== '';
+                    return !!q.img && typeof q.img === 'string' && q.img.trim() !== '';
                 }
-                return true;
+                if (mode === 'noMonuments') {
+                    return !q.img || typeof q.img !== 'string' || q.img.trim() === '';
+                }
+                return true; // 'all' or unknown mode
             });
 
             quizData = [...filteredData];
@@ -930,9 +2118,25 @@
             document.getElementById('rationale-box').style.display = 'none';
             document.getElementById('submit-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'block';
+
+            // Automatyczne przejście do następnego pytania po 2 sekundach
+            if (autoNextTimer) {
+                clearTimeout(autoNextTimer);
+                autoNextTimer = null;
+            }
+            autoNextTimer = setTimeout(() => {
+                autoNextTimer = null;
+                handleNext();
+            }, 2000);
         }
 
         function handleNext() {
+            // jeśli istnieje zaplanowane automatyczne przejście, anuluj je
+            if (autoNextTimer) {
+                clearTimeout(autoNextTimer);
+                autoNextTimer = null;
+            }
+
             currentIdx++;
             if (currentIdx < quizData.length) {
                 showQuestion();
