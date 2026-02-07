@@ -299,12 +299,11 @@
             <span class="icon-large">⚓</span>
             <h1>Wielki Quiz o Gdyni</h1>
             <p>Sprawdź swoją wiedzę o "mieście z morza i marzeń".</p>
-            <p>Baza zawiera <strong>50 pytań</strong>, w tym nową kategorię: <strong>Rozpoznawanie Pomników</strong>.
-            </p>
+            <p>Baza zawiera ok 60 pytań.</p>
             <div class="mode-selector">
                 <p style="margin: 10px 0; font-weight: 600; color: var(--primary);">Dobierz tryb gry:</p>
-                <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie Pytania</button>
-                <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko Pomniki</button>
+                <button class="mode-btn" onclick="startQuizMode('all')">📚 Wszystkie pytania</button>
+                <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Tylko pomniki</button>
             </div>
         </div>
 
@@ -524,9 +523,11 @@
                 "img": "https://raw.githubusercontent.com/prybak/prybak.github.io/main/img/pomnik-zawaire.jpg",
                 "r": "Monument ten honoruje osoby duchowne i świeckie, które oddały życie za wartości narodowe i religijne."
             },
+
+            //PYTANIA BEZPOSREDNIE
             {
-                "q": "Podaj liczbę zameldowanych mieszkańców Gdyni według danych z końca 2021 roku:",
-                "o": ["246 309", "224 824", "250 000", "235 400"],
+                "q": "Podaj liczbę zameldowanych mieszkańców Gdyni według danych z 2025 roku:",
+                "o": ["246 309", "224 824", "250 000", "239 325"],
                 "correct": [1],
                 "multi": false,
                 "r": "Na koniec 2021 roku liczba zameldowanych mieszkańców wynosiła dokładnie 224 824 osoby."
@@ -568,10 +569,10 @@
             },
             {
                 "q": "Gdzie odbywa się coroczny Festiwal Polskich Filmów Fabularnych w Gdyni?",
-                "o": ["W Teatrze Miejskim w Gdyni", "W Urzędzie Miasta", "W Hali Gdynia Arena", "W Muzeum Emigracji"],
+                "o": ["W Teatrze Muzycznym w Gdyni", "W Urzędzie Miasta", "W Hali Gdynia Arena", "W Muzeum Emigracji"],
                 "correct": [0],
                 "multi": false,
-                "r": "To najważniejsze święto polskiego kina odbywa się w Teatrze Miejskim w Gdyni."
+                "r": "To najważniejsze święto polskiego kina odbywa się w Teatrze Muzycznym w Gdyni."
             },
             {
                 "q": "Z jakiego materiału wykonany był pierwszy krzyż na Kamiennej Górze?",
@@ -616,7 +617,7 @@
                 "r": "Gdynia to miasto portowe leżące bezpośrednio nad Zatoką Gdańską."
             },
             {
-                "q": "Jaką funkcję zawodową pełnił Feliks Nowowiejski, patron Bulwaru Nadmorskiego?",
+                "q": "Jak jaką funkcję zawodową pełnił Feliks Nowowiejski, patron Bulwaru Nadmorskiego?",
                 "o": ["Był inżynierem", "Był kompozytorem", "Był politykiem", "Był wojskowym"],
                 "correct": [1],
                 "multi": false,
@@ -658,13 +659,6 @@
                 "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
             },
             {
-                "q": "W którym roku Gdynia liczyła rekordowe 246 309 mieszkańców?",
-                "o": ["2018", "2021", "1926", "2000"],
-                "correct": [0],
-                "multi": false,
-                "r": "Liczba 246 309 mieszkańców została odnotowana w statystykach za rok 2018."
-            },
-            {
                 "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
                 "o": ["25 metrów", "15 metrów", "35 metrów", "10 metrów"],
                 "correct": [0],
@@ -707,20 +701,6 @@
                 "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
             },
             {
-                "q": "Wymień 3 najstarsze zabytki Gdyni:",
-                "o": ["Kościół św. Mikołaja (Chylonia)", "Kościół św. Michała Archanioła na Oksywiu", "Domek Antoniego Abrahama", "Sea Towers", "Akwarium Gdyńskie"],
-                "correct": [0, 1, 2],
-                "multi": true,
-                "r": "Są to: XV-wieczny kościół w Chyloni, XIII-wieczny na Oksywiu oraz historyczny domek Abrahama."
-            },
-            {
-                "q": "Które z wymienionych to uczelnie wyższe w Gdyni?",
-                "o": ["Akademia Marynarki Wojennej", "Uniwersytet Morski", "Uniwersytet Jagielloński", "Gdański Uniwersytet Medyczny"],
-                "correct": [0, 1],
-                "multi": true,
-                "r": "Gdynia kształci kadry morskie w AMW oraz na Uniwersytecie Morskim."
-            },
-            {
                 "q": "Wymień najważniejsze ulice Gdyni (zaznacz poprawne):",
                 "o": ["Świętojańska", "10 Lutego", "Starowiejska", "Morska", "Aleja Piłsudskiego", "Ulica Szeroka"],
                 "correct": [0, 1, 2, 3, 4],
@@ -740,22 +720,10 @@
                 "r": "Nosi imię kompozytora Feliksa Nowowiejskiego."
             },
             {
-                "q": "Pomysłodawcą budowy portu był inżynier:",
-                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Stefan Żeromski"],
-                "correct": [0],
-                "r": "To wizja ministra Eugeniusza Kwiatkowskiego."
-            },
-            {
                 "q": "Budową portu gdyńskiego kierował inżynier:",
                 "o": ["Tadeusz Wenda", "Eugeniusz Kwiatkowski", "Jan Radtke", "Antoni Abraham"],
                 "correct": [0],
                 "r": "To inżynier Tadeusz Wenda zaprojektował i budował port."
-            },
-            {
-                "q": "Jaki pomnik stoi w najwyższym punkcie Kamiennej Góry?",
-                "o": ["25-metrowy krzyż", "Pomnik Marynarza", "Pomnik Harcerzy", "Zegar Słoneczny"],
-                "correct": [0],
-                "r": "To podświetlany metalowy krzyż o wysokości 25 metrów."
             },
             {
                 "q": "W którym roku Gdynia została uwolniona spod okupacji?",
@@ -764,7 +732,7 @@
                 "r": "Walki o Gdynię zakończyły się 28 marca 1945 roku."
             },
             {
-                "q": "Nazwa Gdyni podczas niemieckiej okupacji to:",
+                "q": "Nazwa Gdyni podczas niemiecznej okupacji to:",
                 "o": ["Gotenhafen", "Gedingen", "Zoppot", "Danzig"],
                 "correct": [0],
                 "r": "Niemcy zmienili nazwę na Gotenhafen."
@@ -800,12 +768,6 @@
                 "r": "Leon Staniszewski zaprojektował go w 1946 roku."
             },
             {
-                "q": "Gdynia otrzymała status 'Pomnika Historii' w roku:",
-                "o": ["2015", "1926", "2000", "2024"],
-                "correct": [0],
-                "r": "Prezydent RP przyznał ten status w 2015 roku."
-            },
-            {
                 "q": "Jak nazywa się bezpłatna kolejka w centrum?",
                 "o": ["Kolejka na Kamienną Górę", "Tramwaj wodny", "SKM", "Gondola portowa"],
                 "correct": [0],
@@ -836,53 +798,12 @@
                 "r": "To pomnik słynnego pisarza-marynarza Josepha Conrada Korzeniowskiego."
             },
             {
-                "q": "W którym roku Gdynia liczyła rekordowe 246 309 mieszkańców?",
-                "o": ["2018", "2021", "1926", "2000"],
-                "correct": [0],
-                "r": "Liczba 246 309 mieszkańców została odnotowana w statystykach za rok 2018."
-            },
-            {
-                "q": "Ile metrów wysokości ma metalowy krzyż wieńczący Kamienną Górę?",
-                "o": ["25 metrów", "15 metrów", "35 metrów", "10 metrów"],
-                "correct": [0],
-                "r": "Obecny, podświetlany krzyż ma wysokość 25 metrów."
-            },
-            {
-                "q": "Jak nazywa się skwer upamiętniający brytyjskie miasto partnerskie Gdyni?",
-                "o": ["Skwer Plymouth", "Skwer Londyński", "Skwer Bristol", "Skwer Portsmouth"],
-                "correct": [0],
-                "r": "Jest to Skwer Plymouth, położony w pobliżu bulwaru."
-            },
-            {
-                "q": "Kto był wizjonerem i głównym pomysłodawcą budowy portu?",
-                "o": ["Eugeniusz Kwiatkowski", "Tadeusz Wenda", "Jan Radtke", "Leon Staniszewski"],
-                "correct": [0],
-                "r": "Inicjatorem politycznym i gospodarczym budowy był minister Eugeniusz Kwiatkowski."
-            },
-            {
                 "q": "Czym dla Gdyni jest Zatoka Gdańska?",
                 "o": ["Odnogą Morza Bałtyckiego", "Odnogą rzeki Wisły", "Zalewem słodkowodnym", "Jeziorem przybrzeżnych"],
                 "correct": [0],
                 "r": "Geograficznie Zatoka Gdańska to duża odnoga południowego Bałtyku."
-            },
-            {
-                "q": "W którym roku Gdynia uzyskała prawa miejskie?",
-                "o": ["1926", "1918", "1945", "1920"],
-                "correct": [0],
-                "r": "Prawa miejskie zostały nadane Gdyni dokładnie 10 lutego 1926 roku."
-            },
-            {
-                "q": "Jak brzmi popularne hasło określające powstanie Gdyni?",
-                "o": ["Miasto z morza i marzeń", "Okno na świat", "Brama Bałtyku", "Perła Północy"],
-                "correct": [0],
-                "r": "Hasło 'Gdynia - miasto z morza i marzeń' podkreśla błyskawiczną budowę miasta od podstaw."
-            },
-            {
-                "q": "Kogo nazywano 'Królem Kaszub'?",
-                "o": ["Antoniego Abrahama", "Jana Radtkego", "Tadeusz Wendę", "Eugeniusza Kwiatkowskiego"],
-                "correct": [0],
-                "r": "Ten przydomek nosił Antoni Abraham, wielki orędownik polskości Pomorza."
             }
+
 
         ];
 
