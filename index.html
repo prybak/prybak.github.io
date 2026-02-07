@@ -10,7 +10,7 @@
             --primary: #1a4d6d;
             --secondary: #0096c7;
             --accent: #d4af37;
-            --bg: linear-gradient(135deg, #e8f4f8 0%, #dbeef5 100%);
+            --bg: linear-gradient(135deg, #0a3d62 0%, #1e5f7a 25%, #2d8a9c 50%, #1a6f8c 75%, #0d4a66 100%);
             --card: #ffffff;
             --text: #0d2d47;
             --correct: #06a77d;
@@ -29,7 +29,7 @@
         }
 
         .quiz-container {
-            background: linear-gradient(135deg, #ffffff 0%, #f5fafb 100%);
+            background: linear-gradient(135deg, #f8fbfc 0%, #e8f5f9 50%, #dbeef5 100%);
             width: 100%;
             max-width: 750px;
             margin: 20px;
@@ -297,6 +297,40 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(0, 150, 199, 0.25);
         }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .exit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 150, 199, 0.3);
+            transition: all 0.2s;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .exit-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 6px 18px rgba(0, 150, 199, 0.4);
+        }
+
+        .progress-section {
+            flex: 1;
+        }
     </style>
 </head>
 
@@ -313,17 +347,23 @@
                 <button class="mode-btn" onclick="startQuizMode('all')">🚢 Pełny rejs</button>
                 <button class="mode-btn" onclick="startQuizMode('monuments')">🗿 Rejs Pomników</button>
                 <button class="mode-btn" onclick="startQuizMode('noMonuments')">⛵ Rejs Kapitański</button>
+                <button class="mode-btn" onclick="startQuizMode('random')">🏴‍☠️ Rejs Piracki!</button>
             </div>
         </div>
 
         <!-- EKRAN QUIZU -->
         <div id="quiz-screen" class="screen">
-            <div class="progress-meta">
-                <span>Pytanie <span id="curr-idx">1</span> / <span id="total-q">0</span></span>
-                <span id="percent-text">0%</span>
-            </div>
-            <div class="progress-bg">
-                <div id="progress-bar" class="progress-fill"></div>
+            <div class="quiz-header">
+                <div class="progress-section">
+                    <div class="progress-meta">
+                        <span>Pytanie <span id="curr-idx">1</span> / <span id="total-q">0</span></span>
+                        <span id="percent-text">0%</span>
+                    </div>
+                    <div class="progress-bg">
+                        <div id="progress-bar" class="progress-fill"></div>
+                    </div>
+                </div>
+                <button class="exit-btn" onclick="exitToStart()" title="Wróć do menu">✕</button>
             </div>
 
             <div id="q-badge" class="question-type-badge">Typ pytania</div>
@@ -867,7 +907,7 @@
   {
     "q": "Jaką funkcję pełnił Jan Radtke?",
     "o": [
-      "Pierwszy sołtys Gdyni",
+      "Pierwszy wójt Gdyni",
       "Komisarz portu",
       "Budowniczy dworca",
       "Admirał floty"
@@ -1597,7 +1637,7 @@
   {
     "q": "Kto zaprojektował flagę Gdyni?",
     "o": [
-      "Józef Jazierski",
+      "Józef Jezierski",
       "Leon Staniszewski",
       "Zygmunt Kamiński",
       "Antoni Abraham"
@@ -1605,7 +1645,7 @@
     "correct": [
       0
     ],
-    "r": "Autorem projektu flagi Gdyni jest Józef Jazierski."
+    "r": "Autorem projektu flagi Gdyni jest Józef Jezierski."
   },
   {
     "q": "Co symbolizują kolory flagi Gdyni?",
@@ -1653,7 +1693,7 @@
   {
     "q": "Kto zaprojektował logo 'GDYNIA moje miasto'?",
     "o": [
-      "Jacek Musiałski",
+      "Jacek Muszalski",
       "Józef Jazierski",
       "Leon Staniszewski",
       "Zygmunt Kamiński"
@@ -1661,7 +1701,7 @@
     "correct": [
       0
     ],
-    "r": "Logo 'GDYNIA moje miasto' zaprojektował Jacek Musiałski."
+    "r": "Logo 'GDYNIA moje miasto' zaprojektował Jacek Muszalski."
   },
   {
     "q": "W którym roku powstało logo 'GDYNIA moje miasto'?",
@@ -1943,6 +1983,7 @@
             // Filter logic:
             // - 'monuments' -> only questions that have any non-empty img (local or remote)
             // - 'noMonuments' -> only questions without img (no img property or empty string)
+            // - 'random' -> select 60 random questions from all questions
             let filteredData = rawData.filter(q => {
                 if (mode === 'monuments') {
                     return !!q.img && typeof q.img === 'string' && q.img.trim() !== '';
@@ -1950,8 +1991,17 @@
                 if (mode === 'noMonuments') {
                     return !q.img || typeof q.img !== 'string' || q.img.trim() === '';
                 }
+                if (mode === 'random') {
+                    return true; // include all for random selection
+                }
                 return true; // 'all' or unknown mode
             });
+
+            // For random mode, select 60 questions from all available
+            if (mode === 'random') {
+                shuffle(filteredData);
+                filteredData = filteredData.slice(0, Math.min(60, filteredData.length));
+            }
 
             quizData = [...filteredData];
             shuffle(quizData);
@@ -2088,6 +2138,17 @@
             } else {
                 showResults();
             }
+        }
+
+        function exitToStart() {
+            // jeśli istnieje zaplanowane automatyczne przejście, anuluj je
+            if (autoNextTimer) {
+                clearTimeout(autoNextTimer);
+                autoNextTimer = null;
+            }
+            
+            document.getElementById('quiz-screen').classList.remove('active');
+            document.getElementById('start-screen').classList.add('active');
         }
 
         function showResults() {
